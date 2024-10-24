@@ -1,0 +1,56 @@
+.header-bubble {
+    background-color: #EBEFF0; 
+    padding: 15px 30px; 
+    border-radius: 30px; 
+    margin: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .header-toolbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #EBEFF0; 
+  }
+
+  .toolbar-container {
+    background-color: #EBEFF0;
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .logo {
+    height: 3.5rem; 
+    margin-left: 3rem 
+  }
+  
+  .nav-container {
+    display: flex; 
+    align-items: center; 
+    background-color: #00BEBB; 
+    border-radius: 25px; 
+    padding: 5px 10px; 
+    margin: 1.5rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .nav-button {
+    color: #ffffff; 
+    font-weight: bold; 
+    margin: 0 5px; 
+    background-color: transparent; 
+    border: none; 
+  }
+  
+  .nav-button:hover {
+    background-color: transparent; 
+  }
+  
+  .nav-button:focus {
+    outline: none; 
+  }
+
+  
+  
