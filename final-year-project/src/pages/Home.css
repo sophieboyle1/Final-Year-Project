@@ -1,3 +1,8 @@
+body {
+    font-family: 'Dancing Script', cursive !important;
+}
+
+
 ion-content {
     background-color: #EBEFF0;
     --background: #EBEFF0;
@@ -28,13 +33,22 @@ ion-content {
     padding: 2rem;
     text-align: left;
     background-color: #EBEFF0;
+    margin-left: 2rem;
   }
   
   .main-title {
     font-size: 2.5rem;
-    color: #007C7D;
-  }
-  
+    font-weight: bold;
+    color: #003D5B;
+    margin: 1rem 0;
+}
+
+.main-title-2{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00BEBB;
+    margin: 1rem 0;
+}
   .subheading {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
