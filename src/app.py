@@ -8,7 +8,7 @@ CORS(app)
 @app.route('/api/reports', methods=['GET'])
 def get_reports():
     # Load cleaned data
-    data = pd.read_csv('data/hse_scraped_data.csv')
+    data = pd.read_csv('../data/hse_scraped_data.csv')
     
     # Convert it to JSON format
     result = data.to_dict(orient='records')
