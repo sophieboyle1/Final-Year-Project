@@ -3,6 +3,7 @@ import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton } from '@ionic/r
 import './Header.css';
 import logo from '../assets/logo.png';
 
+
 const Header: React.FC = () => {
   return (
     <IonHeader>
@@ -16,7 +17,6 @@ const Header: React.FC = () => {
     <IonButton className="nav-button" href="/reports">Reports</IonButton>
     <IonButton className="nav-button" href="/predictions">Predictions</IonButton>
 </IonButtons>
-
       </IonToolbar>
     </IonHeader>
   );

@@ -1,40 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle } from '@ionic/react';
 import './Reports.css';
+import Header from './Header';
 
-const Reports: React.FC = () => {
-  const [data, setData] = useState<any[]>([]);
+interface ReportsProps {
+  reportData: any[]; // Define the prop type
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      console.log('Fetching data from API...');
-      try {
-        const response = await fetch('http://127.0.0.1:5000/api/reports');
-        console.log('API response:', response);
-  
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        
-        const result = await response.json();
-        console.log('Data received:', result);
-        setData(result);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    fetchData();
-  }, []);
-
+const Reports: React.FC<ReportsProps> = ({ reportData }) => { // Destructure reportData from props
   return (
     <IonPage>
-      <IonHeader>
-        <IonTitle>Reports</IonTitle>
-      </IonHeader>
+      <Header />
       <IonContent className="ion-padding">
         <h1>Daily A&E Reports</h1>
-        {data.length > 0 ? (
+        {reportData.length > 0 ? (
           <table>
             <thead>
               <tr>
@@ -46,7 +25,7 @@ const Reports: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((item, index) => (
+              {reportData.map((item, index) => (
                 <tr key={index}>
                   <td>{item["Unnamed: 0_level_0"] || "N/A"}</td>
                   <td>{item["Daily Trolley count"] || "N/A"}</td>
