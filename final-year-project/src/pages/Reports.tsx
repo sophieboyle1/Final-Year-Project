@@ -4,10 +4,10 @@ import './Reports.css';
 import Header from './Header';
 
 interface ReportsProps {
-  reportData: any[]; // Define the prop type
+  reportData: any[];
 }
 
-const Reports: React.FC<ReportsProps> = ({ reportData }) => { // Destructure reportData from props
+const Reports: React.FC<ReportsProps> = ({ reportData }) => {
   return (
     <IonPage>
       <Header />
@@ -27,8 +27,8 @@ const Reports: React.FC<ReportsProps> = ({ reportData }) => { // Destructure rep
             <tbody>
               {reportData.map((item, index) => (
                 <tr key={index}>
-                  <td>{item["Unnamed: 0_level_0"] || "N/A"}</td>
                   <td>{item["Daily Trolley count"] || "N/A"}</td>
+                  <td>{item["Daily Trolley count.1"] || "N/A"}</td>
                   <td>{item["No of Total Waiting >24hrs"] || "N/A"}</td>
                   <td>{item["Delayed Transfers of Care (As of Midnight)"] || "N/A"}</td>
                   <td>{item["Surge Capacity in Use (Full report @14:00)"] || "N/A"}</td>

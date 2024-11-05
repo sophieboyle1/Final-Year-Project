@@ -7,7 +7,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Tab1 from './pages/Home';
-import Reports from './pages/Reports'; // Import the Reports page
+import Reports from './pages/Reports';
 import { useEffect, useState } from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -58,7 +58,7 @@ const App: React.FC = () => {
               <Tab1 />
             </Route>
             <Route path="/reports">
-              <Reports reportData={reportData} /> {/* Pass the reportData to Reports */}
+              <Reports reportData={reportData} />
             </Route>
             <Route exact path="/">
               <Redirect to="/tab1" />
