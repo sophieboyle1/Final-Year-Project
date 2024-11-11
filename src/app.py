@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
 import pandas as pd
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ CORS(app)
 def get_reports():
     # Load cleaned data
     data = pd.read_csv('../data/hse_scraped_data.csv')
-    
+
     # Select only the relevant columns and drop unnecessary ones
     columns_to_keep = [
         "Daily Trolley count",
@@ -21,12 +21,13 @@ def get_reports():
         "Surge Capacity in Use (Full report @14:00)"
     ]
     data = data[columns_to_keep]
-    
+
+    data = data.where(pd.notnull(data), None)
+
     # Convert it to JSON format
     result = data.to_dict(orient='records')
-    print(result)
+    
     return jsonify(result)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle } from '@ionic/react';
 import './Reports.css';
 import Header from './Header';
+//import { fetchReportData } from '../dataService';
 
 interface ReportsProps {
   reportData: any[];

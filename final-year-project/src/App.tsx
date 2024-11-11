@@ -37,14 +37,14 @@ const App: React.FC = () => {
     try {
       const response = await fetch('http://127.0.0.1:5000/api/reports');
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
       setReportData(data);
     } catch (error) {
       console.error('Error fetching reports:', error);
     }
-  };
+  };  
 
   useEffect(() => {
     fetchReports();
