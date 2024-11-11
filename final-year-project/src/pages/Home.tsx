@@ -3,6 +3,7 @@ import { IonContent, IonPage } from '@ionic/react';
 import Header from './Header';
 import './Home.css';
 import image from '../assets/hospital.jpg';
+import { Link } from 'react-router-dom'; 
 
 const HomePage: React.FC = () => {
   return (

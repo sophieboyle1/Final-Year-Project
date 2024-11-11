@@ -24,7 +24,7 @@ def get_reports():
     
     # Convert it to JSON format
     result = data.to_dict(orient='records')
-    
+    print(result)
     return jsonify(result)
 
 
