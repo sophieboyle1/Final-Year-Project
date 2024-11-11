@@ -79,3 +79,17 @@ plt.xlabel("Predicted Values")
 plt.ylabel("Residuals")
 plt.title("Residual Plot")
 plt.show()
+
+# Correlation Heatmap
+sns.pairplot(data)
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.heatmap(data.corr(), annot=True, cmap='coolwarm')
+plt.title("Correlation Heatmap")
+plt.show()
+
+# Save the plot as an image file
+plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/src/assets/trolley_predictions.png')
+plt.close()
+
+
