@@ -9,6 +9,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Tab1 from './pages/Home';
 import Reports from './pages/Reports';
 import Predictions from './pages/Predictions';
+import AandEData from './pages/A&EData';
 import { useEffect, useState } from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -63,6 +64,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/predictions">
               <Predictions />
+            </Route>
+            <Route path="/data">
+              <AandEData /> 
             </Route>
             <Route exact path="/">
               <Redirect to="/tab1" />
