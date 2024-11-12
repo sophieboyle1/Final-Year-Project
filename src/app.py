@@ -1,6 +1,7 @@
+from flask import Flask, jsonify, send_from_directory, abort
 import pandas as pd
-from flask import Flask, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -8,10 +9,7 @@ CORS(app)
 @app.route('/api/reports', methods=['GET'])
 def get_reports():
     # Load cleaned data
-    try:
-        data = pd.read_csv('/Users/sophieboyle/Documents/Final-Year-Project/data/hse_scraped_data.csv')
-    except FileNotFoundError:
-        return jsonify({"error": "Data file not found"}), 404
+    data = pd.read_csv('/Users/sophieboyle/Documents/Final-Year-Project/data/hse_scraped_data.csv')
 
     # Select only the relevant columns and drop unnecessary ones
     columns_to_keep = [
@@ -34,9 +32,17 @@ def get_reports():
     return jsonify(result)
 
 # Serving the prediction image
-@app.route('/api/visualization/trolley_predictions.png')
+@app.route('/api/visualization/trolley_predictions.png', methods=['GET'])
 def serve_prediction_image():
-    return send_from_directory('/Users/sophieboyle/Documents/Final-Year-Project/src/static', 'trolley_predictions.png')
+    image_path = '/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets'
+    image_name = 'trolley_predictions.png'
+
+    # Check if the file exists before trying to serve it
+    if not os.path.exists(os.path.join(image_path, image_name)):
+        print(f"Image file not found: {os.path.join(image_path, image_name)}")
+        return abort(404)
+
+    return send_from_directory(image_path, image_name)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -62,15 +62,19 @@ mse = mean_squared_error(y_test, y_pred)
 print("Mean Squared Error:", mse)
 
 # Visualize results
+
+# Scatter Plot - Actual vs Predicted Values
 plt.figure(figsize=(10, 6))
 plt.scatter(y_test, y_pred, color='blue', edgecolor='k')
 plt.xlabel("Actual Values")
 plt.ylabel("Predicted Values")
 plt.title("Actual vs Predicted Values for Patients on Trolleys")
 plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], color='r', lw=2) 
+plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets/trolley_predictions.png')
 plt.show()
+plt.close()
 
-# Residual plot
+# Residual Plot
 residuals = y_test - y_pred
 plt.figure(figsize=(10, 6))
 plt.scatter(y_pred, residuals, color='green', edgecolor='k')
@@ -78,18 +82,20 @@ plt.axhline(0, linestyle='--', color='r')
 plt.xlabel("Predicted Values")
 plt.ylabel("Residuals")
 plt.title("Residual Plot")
+plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets/trolley_residuals.png')
 plt.show()
+plt.close()
+
+# Pairplot to visualize relationships between features
+sns.pairplot(data)
+plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets/trolley_pairplot.png')
+plt.show()
+plt.close()
 
 # Correlation Heatmap
-sns.pairplot(data)
-plt.show()
 plt.figure(figsize=(10, 6))
 sns.heatmap(data.corr(), annot=True, cmap='coolwarm')
 plt.title("Correlation Heatmap")
+plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets/trolley_heatmap.png')
 plt.show()
-
-# Save the plot as an image file
-plt.savefig('/Users/sophieboyle/Documents/Final-Year-Project/src/assets/trolley_predictions.png')
 plt.close()
-
-
