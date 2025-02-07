@@ -43,6 +43,7 @@ def serve_prediction_image():
         return abort(404)
 
     return send_from_directory(image_path, image_name)
+    
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
