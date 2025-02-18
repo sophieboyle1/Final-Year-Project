@@ -10,14 +10,28 @@ const HomePage: React.FC = () => {
       <Header />
       <IonContent className="ion-padding">
         <div className="homepage-container">
+          
+          {/* Left Side - Image */}
           <div className="image-container">
-            <img src={image} alt="A&E Services" className="side-image" />
+            <img src={image} alt="Hospital Building" className="side-image" />
           </div>
+
+          {/* Right Side - Project Overview */}
           <div className="text-container">
-            <h1 className="main-title">Welcome to the A&E</h1>
-            <h1 className="main-title-2">Waiting Times Dashboard</h1>
-            <p className="subheading">Stay updated with real-time data and AI-powered predictions.</p>
+            <h1 className="main-title">A&E Data Analysis</h1>
+            <h2 className="subheading">Understanding Emergency Department Trends</h2>
+
+            <p className="description">
+              Analyzing hospital admissions and waiting times using real & synthetic data, 
+              with machine learning and statistical modeling to uncover trends and improve efficiency.
+            </p>
+
+            <div className="button-container">
+              <button className="primary-button">Explore Data</button>
+              <button className="secondary-button">View Reports</button>
+            </div>
           </div>
+
         </div>
       </IonContent>
     </IonPage>
