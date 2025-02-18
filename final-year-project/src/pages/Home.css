@@ -17,8 +17,10 @@ ion-content {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 3rem;
+  justify-content: center;
+  padding: 2rem;
+  border-bottom: 3px solid #003D5B; 
+  margin-bottom: 2rem;
 }
 
 /* Left - Image */
