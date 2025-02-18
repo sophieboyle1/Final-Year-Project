@@ -24,19 +24,19 @@ const HomePage: React.FC = () => {
             </p>
 
             <div className="button-container">
-              <IonButton expand="full" color="primary" routerLink="/aedata">
+              <IonButton expand="full" className="primary-button" routerLink="/aedata">
                 Explore Data
               </IonButton>
-              <IonButton expand="full" color="secondary" routerLink="/reports">
+              <IonButton expand="full" className="secondary-button" routerLink="/reports">
                 View Reports
               </IonButton>
             </div>
           </div>
         </div>
 
-        {/* Second Section - Features & How It Works */}
+        {/* Second Section - Project Methodology */}
         <div className="features-section">
-          <h2 className="section-title">How This Project Works</h2>
+          <h2 className="section-title">Project Methodology</h2>
           <p className="section-description">
             This project integrates real hospital attendance records with synthetic data to analyze trends, simulate different scenarios, and enhance predictive accuracy.
             By leveraging data preprocessing, visualization, and machine learning techniques, insights into patient flow and hospital efficiency are derived.
@@ -44,8 +44,12 @@ const HomePage: React.FC = () => {
 
           <div className="features-grid">
             <div className="feature-box">
-              <h3>📊 Real Data Analysis</h3>
-              <p>Utilizing historical hospital records to track waiting times, peak attendance, and seasonal trends.</p>
+              <h3>📊 Data Collection</h3>
+              <p>Integrating NHS datasets and synthetic data generation for analysis.</p>
+            </div>
+            <div className="feature-box">
+              <h3>🔎 Statistical Analysis</h3>
+              <p>Identifying trends in patient arrivals, waiting times, and external factors.</p>
             </div>
             <div className="feature-box">
               <h3>🤖 Machine Learning</h3>
@@ -53,40 +57,59 @@ const HomePage: React.FC = () => {
             </div>
             <div className="feature-box">
               <h3>☁️ Cloud Storage</h3>
-              <p>Using cloud computing to store, process, and analyze large-scale emergency attendance data.</p>
-            </div>
-            <div className="feature-box">
-              <h3>🧪 Synthetic Data</h3>
-              <p>Generating **realistic synthetic data** to compare with actual statistics and test predictive models.</p>
+              <p>Using cloud computing for efficient data storage, retrieval, and processing.</p>
             </div>
           </div>
         </div>
 
-        {/* Third Section - Data Exploration */}
-        <div className="exploration-section">
-          <h2 className="section-title">Explore the Data</h2>
+        {/* Third Section - Data Pipeline & Processing */}
+        <div className="pipeline-section">
+          <h2 className="section-title">Data Pipeline & Processing</h2>
           <p className="section-description">
-            Visualize emergency attendance trends across different months, compare real vs. synthetic datasets,
-            and analyze external factors like weather conditions, holidays, and seasonal variations affecting A&E demand.
+            The A&E data undergoes a structured pipeline for preprocessing, feature extraction, and predictive modeling. Key steps include:
           </p>
 
-          <div className="exploration-grid">
-            <div className="exploration-box">
-              <h3>📈 Interactive Graphs</h3>
-              <p>Dive into hospital data with dynamic charts to track A&E trends over time.</p>
+          <div className="pipeline-grid">
+            <div className="pipeline-box">
+              <h3>📥 Data Ingestion</h3>
+              <p>Loading raw hospital data, handling missing values, and normalizing formats.</p>
             </div>
-            <div className="exploration-box">
-              <h3>🛠️ Data Filters</h3>
-              <p>Customize your analysis by filtering data based on time of year, hospital type, and attendance category.</p>
+            <div className="pipeline-box">
+              <h3>⚙️ Feature Engineering</h3>
+              <p>Extracting variables like seasonality, holidays, weather impacts, and peak hours.</p>
             </div>
-            <div className="exploration-box">
-              <h3>🔍 Real vs. Synthetic Comparison</h3>
-              <p>Analyze the differences between actual hospital data and AI-generated synthetic data.</p>
+            <div className="pipeline-box">
+              <h3>📈 Predictive Modeling</h3>
+              <p>Applying **Random Forest** and statistical models to forecast A&E demand.</p>
             </div>
           </div>
+        </div>
+
+        {/* Fourth Section - Key Findings */}
+        <div className="findings-section">
+          <h2 className="section-title">Key Findings</h2>
+          <p className="section-description">
+            This analysis reveals important insights into hospital attendances and factors influencing A&E demand.
+          </p>
+
+          <div className="findings-grid">
+            <div className="finding-box">
+              <h3>📆 Seasonal Trends</h3>
+              <p>Winter months show a 15% increase in A&E visits due to flu outbreaks.</p>
+            </div>
+            <div className="finding-box">
+              <h3>📅 Holiday Impact</h3>
+              <p>Public holidays see a spike in attendances, especially due to alcohol-related incidents.</p>
+            </div>
+            <div className="finding-box">
+              <h3>🔀 Real vs. Synthetic Data</h3>
+              <p>AI-generated synthetic data aligns **85% with real data**, proving its validity.</p>
+            </div>
+          </div>
+
           <div className="button-container">
-            <IonButton expand="full" className="exploration-button" routerLink="/aedata">
-              Start Exploring
+            <IonButton expand="full" className="primary-button" routerLink="/findings">
+              View Full Findings
             </IonButton>
           </div>
         </div>
