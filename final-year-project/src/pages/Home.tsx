@@ -3,6 +3,11 @@ import { IonContent, IonPage, IonButton } from '@ionic/react';
 import Header from './Header';
 import './Home.css';
 import image from '../assets/hospital.jpg';
+import dataIngestionImage from '../assets/data_ingestion.jpg';
+import FeatureEngineeringImage from '../assets/feature_engineering.jpg';
+import predictivemodelingImage from '../assets/predictive_modeling.png';
+
+
 
 const HomePage: React.FC = () => {
   return (
@@ -66,24 +71,40 @@ const HomePage: React.FC = () => {
         <div className="pipeline-section">
           <h2 className="section-title">Data Pipeline & Processing</h2>
           <p className="section-description">
-            The A&E data undergoes a structured pipeline for preprocessing, feature extraction, and predictive modeling. Key steps include:
+            The A&E data undergoes a structured pipeline for preprocessing, feature extraction,
+            and predictive modeling. Key steps include:
           </p>
 
           <div className="pipeline-grid">
+            {/* Data Ingestion */}
             <div className="pipeline-box">
-              <h3>📥 Data Ingestion</h3>
+              <div className="pipeline-icon">
+              <img src={dataIngestionImage} alt="Data Ingestion" />
+              </div>
+              <h3>Data Ingestion</h3>
               <p>Loading raw hospital data, handling missing values, and normalizing formats.</p>
             </div>
+
+            {/* Feature Engineering */}
             <div className="pipeline-box">
-              <h3>⚙️ Feature Engineering</h3>
+              <div className="pipeline-icon">
+              <img src={FeatureEngineeringImage} alt="Feature Engineering" />
+              </div>
+              <h3>Feature Engineering</h3>
               <p>Extracting variables like seasonality, holidays, weather impacts, and peak hours.</p>
             </div>
+
+            {/* Predictive Modeling */}
             <div className="pipeline-box">
-              <h3>📈 Predictive Modeling</h3>
-              <p>Applying **Random Forest** and statistical models to forecast A&E demand.</p>
+              <div className="pipeline-icon">
+              <img src={predictivemodelingImage} alt="Predictive Modeling" />
+              </div>
+              <h3>Predictive Modeling</h3>
+              <p>Applying <strong>Random Forest</strong> and statistical models to forecast A&E demand.</p>
             </div>
           </div>
         </div>
+
 
         {/* Fourth Section - Key Findings */}
         <div className="findings-section">
@@ -103,7 +124,7 @@ const HomePage: React.FC = () => {
             </div>
             <div className="finding-box">
               <h3>🔀 Real vs. Synthetic Data</h3>
-              <p>AI-generated synthetic data aligns **85% with real data**, proving its validity.</p>
+              <p>AI-generated synthetic data aligns 85% with real data, proving its validity.</p>
             </div>
           </div>
 
