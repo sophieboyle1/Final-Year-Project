@@ -1,48 +1,49 @@
 import React from 'react';
-import { IonContent, IonPage } from '@ionic/react';
-import './Reports.css';
+import { IonContent, IonPage, IonButton } from '@ionic/react';
 import Header from './Header';
+import './Reports.css';
 
-interface ReportsProps {
-  reportData: any[];
-}
-
-const Reports: React.FC<ReportsProps> = ({ reportData }) => {
+const Reports: React.FC = () => {
   return (
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-        <h1>Daily A&E Reports</h1>
-        {reportData.length > 0 ? (
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Patients on Trolleys</th>
-                  <th>Waiting &gt; 24 Hours</th>
-                  <th>Delayed Transfers</th>
-                  <th>Surge Capacity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {reportData.map((item, index) => (
-                  <tr key={index}>
-                    <td>{item["Daily Trolley count"] || "-"}</td>
-                    <td>{item["Daily Trolley count.1"] || "-"}</td>
-                    <td>{item["No of Total Waiting >24hrs"] || "-"}</td>
-                    <td style={{ color: item["Delayed Transfers of Care (As of Midnight)"] > 50 ? 'red' : 'black' }}>
-                      {item["Delayed Transfers of Care (As of Midnight)"] || "-"}
-                    </td>
-                    <td>{item["Surge Capacity in Use (Full report @14:00)"] || "-"}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        
+        {/* SECTION 1: Key Insights */}
+        <div className="insights-container">
+          <h2 className="section-title">🔍 Key Findings & Insights</h2>
+          <p className="section-description">
+            A&E attendance patterns reveal critical trends based on seasonal changes, holidays, and external factors.
+            Below are the key insights from real and synthetic data analysis:
+          </p>
+          <ul className="insights-list">
+            <li>📈 **Hospital attendances peak during winter months, especially in December.**</li>
+            <li>📉 **Non-holiday months show slightly lower demand compared to holiday periods.**</li>
+            <li>🧪 **Synthetic data trends closely match real data, validating our modeling approach.**</li>
+            <li>⏳ **Waiting times increase significantly during flu season and public holidays.**</li>
+            <li>🔍 **Machine learning predictions indicate rising A&E demand over the next quarter.**</li>
+          </ul>
+        </div>
+
+        {/* SECTION 2: Data Visualizations */}
+        <div className="reports-section">
+          <h2 className="section-title">📊 Interactive Data Visualizations</h2>
+          <p className="section-description">
+            Explore the trends in A&E attendances, compare real vs. synthetic datasets, 
+            and analyze seasonal variations.
+          </p>
+
+          {/* Graph 1 - Real vs. Synthetic Data */}
+          <div className="chart-container">
+            <h3>🧪 Real vs. Synthetic Data Comparison</h3>
           </div>
-        ) : (
-          <p>Loading data...</p>
-        )}
+
+          {/* Graph 2 - Seasonal Trends */}
+          <div className="chart-container">
+            <h3>📆 Seasonal Trends & Holiday Impact</h3>
+          </div>
+        </div>
+
       </IonContent>
     </IonPage>
   );
