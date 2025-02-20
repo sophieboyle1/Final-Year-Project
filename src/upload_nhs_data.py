@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from azure.storage.blob import BlobServiceClient
 from dotenv import load_dotenv
+import re  # Import regex to clean filenames
 
 # Load environment variables
 load_dotenv()
@@ -12,7 +13,7 @@ AZURE_STORAGE_ACCOUNT_NAME = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
 AZURE_STORAGE_ACCOUNT_KEY = os.getenv("AZURE_STORAGE_ACCOUNT_KEY")
 AZURE_CONTAINER_NAME = os.getenv("AZURE_CONTAINER_NAME")
 
-# Base URL pattern (Format it to loop through multiple years)
+# Base NHS URL pattern for multiple years
 BASE_URL_TEMPLATE = "https://www.england.nhs.uk/statistics/statistical-work-areas/ae-waiting-times-and-activity/ae-attendances-and-emergency-admissions-{}-{}/"
 
 # Define the range of years to scrape (from 2016-17 to 2024-25)
@@ -32,9 +33,9 @@ except Exception:
     container_client = blob_service_client.create_container(AZURE_CONTAINER_NAME)
 
 
-# Function to scrape NHS Monthly A&E CSV data links from multiple years
+# Function to scrape NHS Monthly A&E CSV file links from multiple years
 def get_all_yearly_ae_links():
-    """Scrape NHS site for multiple years and return Monthly A&E CSV file links (one per month)."""
+    """Scrape NHS website for multiple years and return Monthly A&E CSV file links."""
     all_files = {}
 
     for year_start, year_end in YEARS_TO_SCRAPE:
@@ -54,14 +55,17 @@ def get_all_yearly_ae_links():
                 href = link['href']
                 text = link.get_text(strip=True)
 
-                # Only pick "Monthly A&E [Month] [Year]" CSV files
-                if "Monthly A&E" in text and href.endswith('.csv'):
-                    month_name = text.replace("Monthly A&E ", "").split(" ")[0]  # Extract month
-                    if month_name not in monthly_files:  # Ensure only one per month
-                        monthly_files[month_name] = href if href.startswith("http") else url + href
+                # ✅ Extract month and ensure it's a valid Monthly A&E file
+                match = re.search(r"Monthly A&E (\w+) (\d{4})", text)
+                if match and (href.endswith('.csv') or href.endswith('.xls') or href.endswith('.xlsx')):
+                    month_name = match.group(1)  # Extract Month
+                    file_year = match.group(2)   # Extract Year
 
-            for month, file_url in monthly_files.items():
-                all_files[f"{month}_{year_start}"] = file_url  # Store with Year to avoid overwriting
+                    # Ensure only one per month per year
+                    if month_name not in monthly_files:
+                        monthly_files[f"{month_name}_{file_year}"] = href if href.startswith("http") else url + href
+
+            all_files.update(monthly_files)
 
         except Exception as e:
             print(f"❌ Error processing {url}: {e}")
@@ -71,14 +75,14 @@ def get_all_yearly_ae_links():
 
 # Function to download and upload files to Azure
 def download_and_upload_files():
-    """Download NHS A&E files from multiple years and upload to Azure."""
+    """Download NHS A&E files and upload to Azure."""
     file_links = get_all_yearly_ae_links()
 
     for month_year, file_url in file_links.items():
-        file_name = f"Monthly_AE_{month_year}.csv"  # Now includes year to prevent overwriting
+        # ✅ Properly format the filename (Month_Year)
+        file_name = f"Monthly_AE_{month_year}.csv"  
 
         try:
-            # Download the CSV file
             response = requests.get(file_url, stream=True)
             if response.status_code == 200:
                 with open(file_name, "wb") as file:
