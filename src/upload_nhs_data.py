@@ -55,7 +55,7 @@ def get_all_yearly_ae_links():
                 href = link['href']
                 text = link.get_text(strip=True)
 
-                # ✅ Extract month and ensure it's a valid Monthly A&E file
+                # Extract month and ensure it's a valid Monthly A&E file
                 match = re.search(r"Monthly A&E (\w+) (\d{4})", text)
                 if match and (href.endswith('.csv') or href.endswith('.xls') or href.endswith('.xlsx')):
                     month_name = match.group(1)  # Extract Month
