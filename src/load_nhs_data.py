@@ -6,35 +6,44 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Azure Storage Account details from .env
+# Azure Storage Account details
 AZURE_STORAGE_ACCOUNT_NAME = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
 AZURE_STORAGE_ACCOUNT_KEY = os.getenv("AZURE_STORAGE_ACCOUNT_KEY")
 AZURE_CONTAINER_NAME = os.getenv("AZURE_CONTAINER_NAME")
 
-# Connect to Azure Blob Storage
+# Initialize Azure Blob Service Client
 blob_service_client = BlobServiceClient(
     f"https://{AZURE_STORAGE_ACCOUNT_NAME}.blob.core.windows.net",
     credential=AZURE_STORAGE_ACCOUNT_KEY
 )
+
+# Get container client
 container_client = blob_service_client.get_container_client(AZURE_CONTAINER_NAME)
 
-# List all available files
-blobs = container_client.list_blobs()
-file_list = [blob.name for blob in blobs]
-print("\n📂 Files in Azure Blob Storage:")
-for file in file_list:
-    print(f"   - {file}")
+# Get list of all blob files in the container
+blob_list = container_client.list_blobs()
 
-# Select a specific file (e.g., January 2024)
-blob_name = "Monthly_AE_January_2024.csv"  # Change this dynamically if needed
-blob_client = container_client.get_blob_client(blob_name)
+# Create an empty DataFrame to store all data
+combined_df = pd.DataFrame()
 
-# Download the file
-with open(blob_name, "wb") as f:
-    f.write(blob_client.download_blob().readall())
-print(f"\n✅ Downloaded: {blob_name}")
+# Loop through each file in Azure Blob Storage and load into Pandas
+for blob in blob_list:
+    blob_name = blob.name  # Extract file name
+    print(f"📂 Loading file: {blob_name}")
 
-# Load into Pandas DataFrame
-df = pd.read_csv(blob_name)
-print("\n📊 Sample Data Preview:")
-print(df.head())
+    # Download the blob as a stream
+    blob_client = container_client.get_blob_client(blob_name)
+    stream = blob_client.download_blob().readall()
+
+    # Read CSV into a Pandas DataFrame
+    df = pd.read_csv(pd.io.common.BytesIO(stream))
+
+    # Append to combined DataFrame
+    combined_df = pd.concat([combined_df, df], ignore_index=True)
+
+# Save the combined dataset (Optional: for local caching)
+combined_df.to_csv("combined_nhs_ae_data.csv", index=False)
+
+# Print summary
+print("All NHS A&E data loaded successfully!")
+print(combined_df.head())
