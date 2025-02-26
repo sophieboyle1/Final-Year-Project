@@ -1,143 +1,161 @@
 import os
 import pandas as pd
 import io
-import chardet
+import re
+import matplotlib.pyplot as plt
+import seaborn as sns
 from azure.storage.blob import BlobServiceClient
 from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
 
-# Azure Storage Configuration
+# Azure Storage Account details
 AZURE_CONNECTION_STRING = os.getenv("AZURE_CONNECTION_STRING")
 AZURE_CONTAINER_NAME = os.getenv("AZURE_CONTAINER_NAME")
-CLEANED_DATASET_BLOB = "cleaned_nhs_ae_data.parquet"
 
+# Ensure Azure Connection
 if not AZURE_CONNECTION_STRING:
-    raise RuntimeError("Azure Connection String is missing! Check your .env file.")
+    raise RuntimeError("Azure Connection String is missing. Check your .env file.")
 
-# Initialize Azure Blob Service Client
 try:
     blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
     container_client = blob_service_client.get_container_client(AZURE_CONTAINER_NAME)
-    print("✅ Connected to Azure Blob Storage!")
+    print("Successfully connected to Azure Blob Storage.")
 except Exception as e:
-    raise RuntimeError(f"❌ Failed to connect to Azure: {e}")
+    raise RuntimeError(f"Failed to connect to Azure: {e}")
 
-# Files to exclude due to previous issues
-EXCLUDED_FILES = ["Monthly_AE_July_2021.csv"]
+# Function to extract month from filename
+def extract_month_from_filename(filename):
+    """Extract the month from the filename, assuming format: Monthly_AE_<Month>_<Year>.csv"""
+    match = re.search(r'Monthly_AE_([A-Za-z]+)_\d{4}\.csv', filename)
+    return match.group(1) if match else None
 
-# Function to detect encoding dynamically
-def detect_encoding(blob_client):
-    raw_data = blob_client.download_blob().readall()
-    result = chardet.detect(raw_data)
-    return result["encoding"]
+# Function to fetch and clean 2024 data
+def load_2024_data():
+    """Fetch NHS A&E data for 2024 from Azure Blob Storage and clean it."""
+    year = "2024"
+    print(f"\nFetching data for {year}...")
 
-# Function to fix duplicate column names
-def deduplicate_columns(columns):
-    seen = {}
-    new_columns = []
-    for col in columns:
-        if col in seen:
-            seen[col] += 1
-            new_col = f"{col}_{seen[col]}"
-        else:
-            seen[col] = 0
-            new_col = col
-        new_columns.append(new_col)
-    return new_columns
+    # Identify files containing '2024' in the filename
+    year_files = [blob.name for blob in container_client.list_blobs() if f"{year}" in blob.name and ".csv" in blob.name]
 
-# Function to extract the "Period" from metadata rows
-def extract_period(blob_client):
-    raw_data = blob_client.download_blob().readall().decode(errors="replace")
-    for line in raw_data.split("\n"):
-        if "Period:" in line:
-            return line.split(",")[1].strip()  # Extract the second column value
-    return None  # If no period is found
-
-# Function to load NHS A&E Data from Azure
-def load_nhs_data():
-    print("Fetching NHS A&E data from Azure Blob Storage...")
-
-    blob_list = [
-        blob.name for blob in container_client.list_blobs()
-        if blob.name.endswith('.csv') and blob.name not in EXCLUDED_FILES
-    ]
+    if not year_files:
+        print(f"No files found for {year}.")
+        return None
 
     dfs = []
-    for blob_name in blob_list:
+    for blob_name in year_files:
         print(f"Loading {blob_name}...")
-
         blob_client = container_client.get_blob_client(blob_name)
 
         try:
-            # Detect encoding
-            encoding = detect_encoding(blob_client)
-            print(f"📜 Detected Encoding for {blob_name}: {encoding}")
+            # Read file content
+            blob_data = blob_client.download_blob().readall()
+            csv_stream = io.StringIO(blob_data.decode("utf-8"))
 
-            # Extract the "Period" value
-            period_value = extract_period(blob_client)
-            print(f"Extracted Period: {period_value}")
+            # Debugging: Print first 5 rows BEFORE processing
+            df_sample = pd.read_csv(csv_stream, nrows=5)
+            print(f"\nSample Data from {blob_name} (Before Processing):")
+            print(df_sample)
 
-            # Read CSV, skipping metadata rows (adjust skiprows if needed)
-            csv_content = blob_client.download_blob().readall()
-            csv_stream = io.StringIO(csv_content.decode(encoding, errors="replace"))
+            # Reload full dataset
+            csv_stream.seek(0)  # Reset stream position
+            df = pd.read_csv(csv_stream, low_memory=False)
 
-            df = pd.read_csv(csv_stream, encoding=encoding, skiprows=10, low_memory=False)  # Adjust skiprows as needed
+            # Drop unnamed columns
+            df = df.loc[:, ~df.columns.str.contains('Unnamed', case=False)]
 
-            # Add extracted period to dataset
-            df["period"] = period_value
+            # Standardize column names
+            df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")
 
-            # Standardize column names BEFORE deduplication
-            df.columns = (
-                df.columns
-                .str.encode('ascii', 'ignore').str.decode('ascii')  # Remove non-ASCII characters
-                .str.strip().str.lower().str.replace(" ", "_")  # Lowercase, remove spaces
-            )
+            # Extract month from filename
+            df['month'] = extract_month_from_filename(blob_name)
 
-            # Deduplicate column names
-            df.columns = deduplicate_columns(df.columns)
-
+            # Append cleaned data
             dfs.append(df)
-
         except Exception as e:
-            print(f"❌ Error reading {blob_name}: {e}")
+            print(f"Failed to read {blob_name}: {e}")
 
-    if not dfs:
-        raise RuntimeError("❌ No valid files were loaded from Azure!")
+    # Combine all 2024 files
+    if dfs:
+        nhs_2024 = pd.concat(dfs, ignore_index=True)
+        print(f"Loaded {len(dfs)} files for {year}. Shape: {nhs_2024.shape}")
 
-    nhs_data = pd.concat(dfs, ignore_index=True)
-    print(f"Data loaded! Shape: {nhs_data.shape}")
+        # Remove columns with more than 90 percent missing values
+        missing_percentage = nhs_2024.isnull().sum() / len(nhs_2024) * 100
+        columns_to_drop = missing_percentage[missing_percentage > 90].index
+        nhs_2024.drop(columns=columns_to_drop, inplace=True)
+        print(f"Dropped {len(columns_to_drop)} columns with high missing values.")
 
-    # Drop unwanted columns
-    unnamed_cols = [col for col in nhs_data.columns if "unnamed" in col.lower()]
-    nhs_data.drop(columns=unnamed_cols, inplace=True, errors="ignore")
-    print(f"🗑️ Dropped columns: {unnamed_cols}")
+        # Fill remaining missing values with 0
+        nhs_2024.fillna(0, inplace=True)
 
-    # Final check for duplicate columns
-    duplicate_columns = nhs_data.columns[nhs_data.columns.duplicated()].tolist()
-    if duplicate_columns:
-        print(f"⚠️ Warning: Final duplicate columns detected: {duplicate_columns}")
-        nhs_data = nhs_data.loc[:, ~nhs_data.columns.duplicated()]  # Drop duplicate columns
+        # Print month-by-month summary
+        if 'month' in nhs_2024.columns:
+            print("\nMonth-by-Month Data Summary:")
+            for month in sorted(nhs_2024['month'].dropna().unique()):
+                print(f"Month: {month} - {len(nhs_2024[nhs_2024['month'] == month])} records")
+        else:
+            print("\nMonth column is missing, skipping summary.")
 
-    # Save cleaned data **locally**
-    nhs_data.to_parquet("cleaned_nhs_ae_data.parquet", engine="pyarrow")
-    nhs_data.to_csv("cleaned_nhs_ae_data.csv", index=False)
-    print("Cleaned data saved locally as 'cleaned_nhs_ae_data.parquet' and 'cleaned_nhs_ae_data.csv'")
+        # Ensure the percentage column exists
+        if 'percentage_seen_within_4_hours' in nhs_2024.columns:
+            print("\nPercentage Seen Within 4 Hours is already in the dataset.")
+        else:
+            print("\nPercentage Seen Within 4 Hours is missing. Calculating now.")
 
-    # Save cleaned data **to Azure**
-    buffer = io.BytesIO()
-    nhs_data.to_parquet(buffer, engine="pyarrow")
-    buffer.seek(0)
+            # Fix Zero Division Issues
+            nhs_2024['percentage_seen_within_4_hours'] = (
+                (nhs_2024['a&e_attendances_type_1'] - nhs_2024['attendances_over_4hrs_type_1']) /
+                nhs_2024['a&e_attendances_type_1']
+            ) * 100
 
-    blob_client = container_client.get_blob_client(CLEANED_DATASET_BLOB)
-    blob_client.upload_blob(buffer, blob_type="BlockBlob", overwrite=True)
-    print(f"Cleaned data saved to Azure as {CLEANED_DATASET_BLOB}!")
+            # Replace infinite and NaN values with 0
+            nhs_2024['percentage_seen_within_4_hours'].replace([float('inf'), -float('inf')], 0, inplace=True)
+            nhs_2024['percentage_seen_within_4_hours'].fillna(0, inplace=True)
 
-    return nhs_data
+            # Clip percentages to valid range 0 to 100
+            nhs_2024['percentage_seen_within_4_hours'] = nhs_2024['percentage_seen_within_4_hours'].clip(0, 100)
 
+            # Remove extremely low values that may be data errors
+            nhs_2024 = nhs_2024[nhs_2024['percentage_seen_within_4_hours'] > 20]
 
-# Run the script
-if __name__ == "__main__":
-    nhs_data = load_nhs_data()
-    print("Data is ready for analysis!")
+            print("\nPercentage Seen Within 4 Hours has been successfully added.")
+
+        # Save cleaned dataset
+        cleaned_filename = "nhs_ae_2024_cleaned.csv"
+        nhs_2024.to_csv(cleaned_filename, index=False)
+        print(f"\nData saved as {cleaned_filename}.")
+
+        return nhs_2024
+    else:
+        return None
+
+# Run the loading process
+nhs_2024 = load_2024_data()
+
+# Print sample data for verification
+if nhs_2024 is not None:
+    print("\nSample Data for 2024 (After Cleaning):")
+    print(nhs_2024.head())
+
+    # Print final column names
+    print("\nFinal Columns in 2024 Data:")
+    print(nhs_2024.columns)
+
+    # Print missing values summary
+    print("\nMissing Values in 2024 Data (After Cleaning):")
+    print(nhs_2024.isnull().sum())
+
+    # Plot Percentage Seen Within 4 Hours
+    plt.figure(figsize=(12, 6))
+    sns.histplot(nhs_2024['percentage_seen_within_4_hours'], bins=20, kde=True)
+    plt.xlabel("Percentage Seen Within 4 Hours")
+    plt.ylabel("Count")
+    plt.title("Distribution of Percentage Seen Within 4 Hours")
+    plt.show()
+
+print("\nData Cleaning Complete.")
+
+print("\nUnique Month Values in Dataset:", nhs_2024['month'].unique())
