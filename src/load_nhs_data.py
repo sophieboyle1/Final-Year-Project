@@ -31,13 +31,12 @@ def extract_month_from_filename(filename):
     match = re.search(r'Monthly_AE_([A-Za-z]+)_\d{4}\.csv', filename)
     return match.group(1) if match else None
 
-# Function to fetch and clean 2024 data
-def load_2024_data():
-    """Fetch NHS A&E data for 2024 from Azure Blob Storage and clean it."""
-    year = "2024"
-    print(f"\n📡 Fetching data for {year}...")
+# Function to fetch and clean NHS A&E data for a given year
+def load_nhs_data(year):
+    """Fetch NHS A&E data for a given year from Azure Blob Storage and clean it."""
+    print(f"\nFetching data for {year}...")
 
-    # Identify files containing '2024' in the filename
+    # Identify files containing the specified year
     year_files = [blob.name for blob in container_client.list_blobs() if f"{year}" in blob.name and ".csv" in blob.name]
 
     if not year_files:
@@ -58,55 +57,57 @@ def load_2024_data():
             df = df.loc[:, ~df.columns.str.contains('Unnamed', case=False)]  # Remove unnamed columns
             df.columns = df.columns.str.strip().str.lower().str.replace(" ", "_")  # Clean column names
             df['month'] = extract_month_from_filename(blob_name)  # Extract month
+            df['year'] = int(year)  # Convert year to integer
             dfs.append(df)
 
         except Exception as e:
             print(f"❌ Error reading {blob_name}: {e}")
 
-    # Combine all 2024 files
+    # Combine all files for the year
     if dfs:
-        nhs_2024 = pd.concat(dfs, ignore_index=True)
-        print(f"✅ Loaded {len(dfs)} files for {year}. Shape: {nhs_2024.shape}")
+        nhs_data = pd.concat(dfs, ignore_index=True)
+        print(f"✅ Loaded {len(dfs)} files for {year}. Shape: {nhs_data.shape}")
 
         # Remove columns with more than 90% missing values
-        missing_percentage = nhs_2024.isnull().sum() / len(nhs_2024) * 100
+        missing_percentage = nhs_data.isnull().sum() / len(nhs_data) * 100
         columns_to_drop = missing_percentage[missing_percentage > 90].index
-        nhs_2024.drop(columns=columns_to_drop, inplace=True)
+        nhs_data.drop(columns=columns_to_drop, inplace=True)
 
         # Fill remaining missing values with 0
-        nhs_2024.fillna(0, inplace=True)
+        nhs_data.fillna(0, inplace=True)
 
-        # Add percentage seen within 4 hours if missing
-        if "percentage_seen_within_4_hours" not in nhs_2024.columns:
-            nhs_2024["percentage_seen_within_4_hours"] = (
-                (nhs_2024.get("a&e_attendances_type_1", 0) - nhs_2024.get("attendances_over_4hrs_type_1", 0)) /
-                nhs_2024.get("a&e_attendances_type_1", 1)  # Avoid division by zero
-            ) * 100
-            nhs_2024["percentage_seen_within_4_hours"].replace([float('inf'), -float('inf')], 0, inplace=True)
-            nhs_2024["percentage_seen_within_4_hours"].fillna(0, inplace=True)
-            nhs_2024["percentage_seen_within_4_hours"] = nhs_2024["percentage_seen_within_4_hours"].clip(0, 100)
+        # Add percentage seen within 4 hours
+        if "percentage_seen_within_4_hours" not in nhs_data.columns:
+            nhs_data = nhs_data.assign(
+                percentage_seen_within_4_hours=(
+                    (nhs_data.get("a&e_attendances_type_1", 0) - nhs_data.get("attendances_over_4hrs_type_1", 0)) /
+                    nhs_data.get("a&e_attendances_type_1", 1)  # Avoid division by zero
+                ) * 100
+            )
+            nhs_data["percentage_seen_within_4_hours"] = nhs_data["percentage_seen_within_4_hours"].clip(0, 100)
 
-        # Save cleaned dataset
-        cleaned_filename = "nhs_ae_2024_cleaned.csv"
-        nhs_2024.to_csv(cleaned_filename, index=False)
-        print(f"📁 Cleaned data saved as {cleaned_filename}")
-
-        return nhs_2024
+        return nhs_data
     else:
         return None
 
-# Run the loading process
-nhs_2024 = load_2024_data()
+# Load 2024 and 2023 data
+nhs_2024 = load_nhs_data("2024")
+nhs_2023 = load_nhs_data("2023")
 
-# If data loaded, generate a visualization
-if nhs_2024 is not None:
-    # Histogram of Percentage Seen Within 4 Hours
-    plt.figure(figsize=(12, 6))
-    sns.histplot(nhs_2024['percentage_seen_within_4_hours'], bins=20, kde=True)
-    plt.xlabel("Percentage Seen Within 4 Hours")
-    plt.ylabel("Count")
-    plt.title("Distribution of Percentage Seen Within 4 Hours")
-    
-    print("\n📊 Plot saved as 'percentage_seen_within_4_hours.png'")
+# Combine both years
+if nhs_2024 is not None and nhs_2023 is not None:
+    nhs_all = pd.concat([nhs_2024, nhs_2023], ignore_index=True)
+    print(f"✅ Merged 2024 & 2023 data. Shape: {nhs_all.shape}")
+elif nhs_2024 is not None:
+    nhs_all = nhs_2024
+    print("⚠ Only 2024 data available.")
+elif nhs_2023 is not None:
+    nhs_all = nhs_2023
+    print("⚠ Only 2023 data available.")
+else:
+    raise RuntimeError("❌ No data available for analysis.")
 
-print("\n✅ Data Cleaning Complete.")
+# Convert 'year' to a categorical variable
+nhs_all["year"] = nhs_all["year"].astype(str)
+
+print("\n✅ Data Cleaning & Merging Complete.")
