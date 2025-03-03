@@ -28,19 +28,25 @@ except Exception as e:
 
 # Function to extract month from filename
 def extract_month_from_filename(filename):
-    """Extract the month from the filename, assuming format: Monthly_AE_<Month>_<Year>.csv"""
+    """Extracts the month from the filename, assuming format: Monthly_AE_<Month>_<Year>.csv"""
     match = re.search(r'Monthly_AE_([A-Za-z]+)_\d{4}\.csv', filename)
     return match.group(1) if match else None
 
 def detect_encoding(blob_data):
-    """Detects the encoding of a file from its raw bytes using chardet."""
+    """Detects encoding of a file. Defaults to 'ISO-8859-1' if detection fails."""
     result = chardet.detect(blob_data)
-    return result['encoding']
+    encoding = result['encoding']
+    
+    if encoding is None:
+        encoding = "ISO-8859-1"  # Fallback encoding
+    
+    print(f"🔍 Detected Encoding: {encoding}")
+    return encoding
 
 # Function to fetch and clean NHS A&E data for a given year
 def load_nhs_data(year):
-    """Fetch NHS A&E data for a given year from Azure Blob Storage and clean it."""
-    print(f"\nFetching data for {year}...")
+    """Fetches NHS A&E data for a given year from Azure Blob Storage and cleans it."""
+    print(f"\n📡 Fetching data for {year}...")
 
     # Identify files containing the specified year
     year_files = [blob.name for blob in container_client.list_blobs() if f"{year}" in blob.name and ".csv" in blob.name]
@@ -51,10 +57,15 @@ def load_nhs_data(year):
 
     dfs = []
     for blob_name in year_files:
-        # **Skip July 2021**
-        if "Monthly_AE_July_2021.csv" in blob_name:
-            print("⚠ Skipping Monthly_AE_July_2021.csv due to persistent errors.")
-            continue  # Skip this file
+        # **Skip problematic months**
+        if blob_name in [
+            "Monthly_AE_July_2021.csv",
+            "Monthly_AE_January_2018.csv",
+            "Monthly_AE_February_2018.csv",
+            "Monthly_AE_March_2018.csv"
+        ]:
+            print(f"⚠ Skipping {blob_name} due to persistent errors.")
+            continue  # Skip these files
 
         blob_client = container_client.get_blob_client(blob_name)
 
@@ -121,14 +132,17 @@ def load_nhs_data(year):
         return None
 
 
-# **Load all available years, skipping July 2021**
+# **Load all available years, skipping problematic months**
 nhs_2024 = load_nhs_data("2024")
 nhs_2023 = load_nhs_data("2023")
 nhs_2022 = load_nhs_data("2022")
 nhs_2021 = load_nhs_data("2021")
+nhs_2020 = load_nhs_data("2020")
+nhs_2019 = load_nhs_data("2019")
+nhs_2018 = load_nhs_data("2018")
 
 # Combine all available years
-dfs = [df for df in [nhs_2024, nhs_2023, nhs_2022, nhs_2021] if df is not None]
+dfs = [df for df in [nhs_2024, nhs_2023, nhs_2022, nhs_2021, nhs_2020, nhs_2019, nhs_2018] if df is not None]
 
 if dfs:
     nhs_all = pd.concat(dfs, ignore_index=True)
