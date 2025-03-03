@@ -91,23 +91,22 @@ def load_nhs_data(year):
         return None
 
 # Load 2024 and 2023 data
+# Load 2024, 2023, and now 2022 data
 nhs_2024 = load_nhs_data("2024")
 nhs_2023 = load_nhs_data("2023")
+nhs_2022 = load_nhs_data("2022") 
 
-# Combine both years
-if nhs_2024 is not None and nhs_2023 is not None:
-    nhs_all = pd.concat([nhs_2024, nhs_2023], ignore_index=True)
-    print(f"✅ Merged 2024 & 2023 data. Shape: {nhs_all.shape}")
-elif nhs_2024 is not None:
-    nhs_all = nhs_2024
-    print("⚠ Only 2024 data available.")
-elif nhs_2023 is not None:
-    nhs_all = nhs_2023
-    print("⚠ Only 2023 data available.")
+# Combine all available years
+dfs = [df for df in [nhs_2024, nhs_2023, nhs_2022] if df is not None]
+
+if dfs:
+    nhs_all = pd.concat(dfs, ignore_index=True)
+    print(f"✅ Merged {len(dfs)} years of data. Shape: {nhs_all.shape}")
 else:
     raise RuntimeError("❌ No data available for analysis.")
 
-# Convert 'year' to a categorical variable
+# Convert 'year' to a categorical variable for easier visualization
 nhs_all["year"] = nhs_all["year"].astype(str)
 
 print("\n✅ Data Cleaning & Merging Complete.")
+
