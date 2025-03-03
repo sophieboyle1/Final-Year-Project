@@ -108,5 +108,7 @@ else:
 # Convert 'year' to a categorical variable for easier visualization
 nhs_all["year"] = nhs_all["year"].astype(str)
 
-print("\n✅ Data Cleaning & Merging Complete.")
+# Save the final merged dataset after combining all years
+nhs_all.to_csv("nhs_ae_merged.csv", index=False)
+print("\n📁 Merged dataset saved as nhs_ae_merged.csv")
 
