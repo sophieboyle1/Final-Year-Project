@@ -58,12 +58,9 @@ def load_nhs_data(year):
     dfs = []
     for blob_name in year_files:
         # **Skip problematic months**
-        if blob_name in [
-            "Monthly_AE_July_2021.csv",
-            "Monthly_AE_January_2018.csv",
-            "Monthly_AE_February_2018.csv",
-            "Monthly_AE_March_2018.csv"
-        ]:
+        problematic_months = ["Monthly_AE_July_2021.csv", "Monthly_AE_January_2018.csv", "Monthly_AE_February_2018.csv", "Monthly_AE_March_2018.csv"]
+        
+        if blob_name in problematic_months:
             print(f"⚠ Skipping {blob_name} due to persistent errors.")
             continue  # Skip these files
 
@@ -133,16 +130,15 @@ def load_nhs_data(year):
 
 
 # **Load all available years, skipping problematic months**
-nhs_2024 = load_nhs_data("2024")
-nhs_2023 = load_nhs_data("2023")
-nhs_2022 = load_nhs_data("2022")
-nhs_2021 = load_nhs_data("2021")
-nhs_2020 = load_nhs_data("2020")
-nhs_2019 = load_nhs_data("2019")
-nhs_2018 = load_nhs_data("2018")
+years_to_load = ["2024", "2023", "2022", "2021", "2020", "2019", "2018"]
+datasets = {year: load_nhs_data(year) for year in years_to_load}
 
-# Combine all available years
-dfs = [df for df in [nhs_2024, nhs_2023, nhs_2022, nhs_2021, nhs_2020, nhs_2019, nhs_2018] if df is not None]
+# Debugging: Check loaded data
+for year, df in datasets.items():
+    print(f"📊 Records loaded for {year}: {df.shape if df is not None else 'None'}")
+
+# Filter out missing datasets
+dfs = [df for df in datasets.values() if df is not None]
 
 if dfs:
     nhs_all = pd.concat(dfs, ignore_index=True)
@@ -154,5 +150,11 @@ else:
 nhs_all["year"] = nhs_all["year"].astype(str)
 
 # Save the final merged dataset after combining all years
-nhs_all.to_csv("nhs_ae_merged.csv", index=False)
-print("\n📁 Merged dataset saved as nhs_ae_merged.csv")
+final_file = "nhs_ae_merged.csv"
+nhs_all.to_csv(final_file, index=False)
+print(f"\n📁 Merged dataset saved as {final_file}")
+
+# Verify the final dataset
+print("\n🔍 Verifying merged data...")
+print("Unique years in dataset:", nhs_all["year"].unique())
+print(nhs_all["year"].value_counts())
