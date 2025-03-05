@@ -58,7 +58,7 @@ def load_nhs_data(year):
     dfs = []
     for blob_name in year_files:
         # **Skip problematic months**
-        problematic_months = ["Monthly_AE_July_2021.csv", "Monthly_AE_January_2018.csv", "Monthly_AE_February_2018.csv", "Monthly_AE_March_2018.csv"]
+        problematic_months = ["Monthly_AE_July_2021.csv"]
         
         if blob_name in problematic_months:
             print(f"⚠ Skipping {blob_name} due to persistent errors.")
