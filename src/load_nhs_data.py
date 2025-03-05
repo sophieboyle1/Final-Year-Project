@@ -130,7 +130,7 @@ def load_nhs_data(year):
 
 
 # **Load all available years, skipping problematic months**
-years_to_load = ["2024", "2023", "2022", "2021", "2020", "2019", "2018"]
+years_to_load = ["2024", "2023", "2022", "2021", "2020", "2019"]
 datasets = {year: load_nhs_data(year) for year in years_to_load}
 
 # Debugging: Check loaded data
