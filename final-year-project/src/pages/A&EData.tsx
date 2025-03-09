@@ -1,71 +1,61 @@
-import React, { useState } from 'react';
-import { IonContent, IonPage } from '@ionic/react';
-import Header from './Header';
-import './AandEData.css';
+import React, { useState, useEffect } from "react";
+import { IonContent, IonPage } from "@ionic/react";
+import Header from "./Header";
+import "./AandEData.css";
+import YearlyComparisonChart from "./YearlyComparisonChart"; // D3 Chart Component
+import { fetchAandEData } from "../dataService"; // Fetch real A&E data
 
 const AandEData: React.FC = () => {
-  // Example state for filtering data
-  const [selectedMonth, setSelectedMonth] = useState<string>('All');
+  const [selectedYear, setSelectedYear] = useState<string>("2024");
+  const [aeData, setAeData] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Fetch real A&E data
+    const getData = async () => {
+      try {
+        const data = await fetchAandEData(); // Fetch A&E Data from API
+        console.log("Fetched A&E Data:", data); // Debugging log
+        setAeData(data);
+      } catch (error) {
+        console.error("Error fetching A&E data:", error);
+      }
+    };
+
+    getData();
+  }, []);
 
   return (
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
         
-        {/* Page Title */}
-        <div className="data-page-header">
-          <h1 className="page-title">A&E Data Insights</h1>
-          <p className="page-description">
-            Explore emergency department attendance trends using real data. View seasonal trends, 
-            compare different factors, and analyze real vs. synthetic datasets.
-          </p>
-        </div>
-
-        {/* Data Filters */}
-        <div className="filter-container">
-          <label htmlFor="month-select">Filter by Month:</label>
-          <select id="month-select" value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)}>
-            <option value="All">All Months</option>
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-        </div>
-
-        {/* Data Visualization Section */}
+        {/* 🔹 SECTION 1: Yearly Comparison */}
         <div className="data-visualization">
-          <h2 className="section-title">Hospital Attendance Trends</h2>
+          <h2 className="section-title">📊 Yearly A&E Attendances</h2>
           <p className="section-description">
-            View A&E attendance trends across different months, seasons, and factors.
+            Select a year to see **A&E attendances** for **Type 1, Type 2, and Type 3 departments**.
           </p>
 
-          {/* Placeholder for Graph */}
-          <div className="graph-container">
-            {/* This will later be replaced with a real chart */}
-            <p>📊 Graph Placeholder (Actual chart will be inserted here)</p>
+          {/* Year Selection Dropdown */}
+          <div className="filter-container">
+            <label htmlFor="year-select">📅 Select Year:</label>
+            <select
+              id="year-select"
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(e.target.value)}
+            >
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2019">2019</option>
+            </select>
           </div>
-        </div>
 
-        {/* Real vs. Synthetic Data Comparison */}
-        <div className="comparison-section">
-          <h2 className="section-title">Real vs. Synthetic Data</h2>
-          <p className="section-description">
-            Compare real hospital attendance records with AI-generated synthetic data 
-            to identify trends and validate predictive models.
-          </p>
-
-          {/* Placeholder for Comparison Graph */}
-          <div className="comparison-graph">
-            <p>📉 Real vs. Synthetic Data Graph Placeholder</p>
+          {/* D3.js Yearly Comparison Chart */}
+          <div className="graph-container">
+            <YearlyComparisonChart data={aeData} selectedYear={selectedYear} />
           </div>
         </div>
 
