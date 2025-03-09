@@ -1,14 +1,14 @@
-import React from 'react';
-import { IonContent, IonPage, IonButton } from '@ionic/react';
-import Header from './Header';
-import './Reports.css';
+import React from "react";
+import { IonContent, IonPage } from "@ionic/react";
+import Header from "./Header";
+import RidgelineChart from "./RidgelineChart"; // Import the D3 chart
+import "./Reports.css";
 
 const Reports: React.FC = () => {
   return (
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-        
         {/* SECTION 1: Key Insights */}
         <div className="insights-container">
           <h2 className="section-title">🔍 Key Findings & Insights</h2>
@@ -41,9 +41,9 @@ const Reports: React.FC = () => {
           {/* Graph 2 - Seasonal Trends */}
           <div className="chart-container">
             <h3>📆 Seasonal Trends & Holiday Impact</h3>
+            <RidgelineChart /> {/* Embed the D3 Chart */}
           </div>
         </div>
-
       </IonContent>
     </IonPage>
   );
