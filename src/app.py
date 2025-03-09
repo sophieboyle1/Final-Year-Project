@@ -1,49 +1,36 @@
-from flask import Flask, jsonify, send_from_directory, abort
-import pandas as pd
-from flask_cors import CORS
-import os
+from flask import Flask, jsonify
+from flask_cors import CORS  # ✅ Allow frontend to access API
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # ✅ Enable CORS for all routes
 
-@app.route('/api/reports', methods=['GET'])
+# 📌 Mock A&E Data - Replace with database query
+AAND_E_DATA = [
+    {"year": 2024, "total": 100000, "type1": 60000, "type2": 25000, "type3": 15000},
+    {"year": 2023, "total": 95000, "type1": 58000, "type2": 24000, "type3": 13000},
+    {"year": 2022, "total": 90000, "type1": 55000, "type2": 23000, "type3": 12000},
+    {"year": 2021, "total": 87000, "type1": 53000, "type2": 22000, "type3": 12000},
+]
+
+@app.route("/api/reports", methods=["GET"])
 def get_reports():
-    # Load cleaned data
-    data = pd.read_csv('/Users/sophieboyle/Documents/Final-Year-Project/data/hse_scraped_data.csv')
+    """Returns a list of reports"""
+    try:
+        reports = [
+            {"id": 1, "date": "2025-03-01", "summary": "March A&E report"},
+            {"id": 2, "date": "2025-02-01", "summary": "February A&E report"}
+        ]
+        return jsonify(reports)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    # Select only the relevant columns and drop unnecessary ones
-    columns_to_keep = [
-        "Daily Trolley count",
-        "Daily Trolley count.1",
-        "Daily Trolley count.2",
-        "Delayed Transfers of Care (As of Midnight)",
-        "No of >75+yrs Waiting >24hrs",
-        "No of Total Waiting >24hrs",
-        "Surge Capacity in Use (Full report @14:00)"
-    ]
-    data = data[columns_to_keep]
+@app.route("/api/ae_data", methods=["GET"])
+def get_ae_data():
+    """Returns A&E attendance data"""
+    try:
+        return jsonify(AAND_E_DATA)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    # Handle missing values by replacing NaNs with None
-    data = data.where(pd.notnull(data), None)
-
-    # Convert it to JSON format
-    result = data.to_dict(orient='records')
-
-    return jsonify(result)
-
-# Serving the prediction image
-@app.route('/api/visualization/trolley_predictions.png', methods=['GET'])
-def serve_prediction_image():
-    image_path = '/Users/sophieboyle/Documents/Final-Year-Project/final-year-project/src/assets'
-    image_name = 'trolley_predictions.png'
-
-    # Check if the file exists before trying to serve it
-    if not os.path.exists(os.path.join(image_path, image_name)):
-        print(f"Image file not found: {os.path.join(image_path, image_name)}")
-        return abort(404)
-
-    return send_from_directory(image_path, image_name)
-    
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    app.run(debug=True)
