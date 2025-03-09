@@ -3,7 +3,7 @@ import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
 import "./AandEData.css";
 import YearlyComparisonChart from "./YearlyComparisonChart"; // D3 Chart Component
-import { fetchAandEData } from "../dataService"; // Fetch real A&E data
+import { fetchReportData } from "../services/dataService"; // Now correctly typed
 
 const AandEData: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState<string>("2024");
