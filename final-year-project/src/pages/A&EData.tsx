@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
 import "./AandEData.css";
-import YearlyComparisonChart from "./YearlyComparisonChart"; // D3 Chart Component
-import { fetchReportData } from "../services/dataService"; // Now correctly typed
+import YearlyComparisonChart from "./YearlyComparisonChart"; // D3 Bar Chart
+import SeasonalTrendsChart from "./SeasonalTrendsChart"; // D3 Line Chart
+import { fetchAandEData } from "../services/dataService";
 
 const AandEData: React.FC = () => {
-  const [selectedYear, setSelectedYear] = useState<string>("2024");
-  const [aeData, setAeData] = useState<any[]>([]);
+  const [aeData, setAeData] = useState<any[]>([]); // Ensuring data is an array
 
   useEffect(() => {
-    // Fetch real A&E data
     const getData = async () => {
       try {
-        const data = await fetchAandEData(); // Fetch A&E Data from API
-        console.log("Fetched A&E Data:", data); // Debugging log
-        setAeData(data);
+        const data = await fetchAandEData();
+        if (Array.isArray(data)) {
+          setAeData(data);
+        } else {
+          console.error("❌ Data is not an array:", data);
+        }
       } catch (error) {
         console.error("Error fetching A&E data:", error);
       }
     };
-
     getData();
   }, []);
 
@@ -28,34 +29,34 @@ const AandEData: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-        
-        {/* 🔹 SECTION 1: Yearly Comparison */}
-        <div className="data-visualization">
-          <h2 className="section-title">📊 Yearly A&E Attendances</h2>
-          <p className="section-description">
-            Select a year to see **A&E attendances** for **Type 1, Type 2, and Type 3 departments**.
+
+        {/* 🔹 SECTION 1: Data Overview */}
+        <div className="data-page-header">
+          <h1 className="page-title">📊 A&E Data Analysis</h1>
+          <p className="page-description">
+            This page visualizes **emergency department trends** based on **real hospital data**.
           </p>
+        </div>
 
-          {/* Year Selection Dropdown */}
-          <div className="filter-container">
-            <label htmlFor="year-select">📅 Select Year:</label>
-            <select
-              id="year-select"
-              value={selectedYear}
-              onChange={(e) => setSelectedYear(e.target.value)}
-            >
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2019">2019</option>
-            </select>
-          </div>
-
-          {/* D3.js Yearly Comparison Chart */}
+        {/* 🔹 SECTION 2: Yearly Comparison Bar Chart */}
+        <div className="data-visualization">
+          <h2 className="section-title">📈 Yearly A&E Attendance Trends</h2>
+          <p className="section-description">
+            This visualization breaks down **Type 1, Type 2, and Type 3** attendances across multiple years.
+          </p>
           <div className="graph-container">
-            <YearlyComparisonChart data={aeData} selectedYear={selectedYear} />
+            <YearlyComparisonChart data={aeData} />
+          </div>
+        </div>
+
+        {/* 🔹 SECTION 3: Seasonal Trends Line Chart */}
+        <div className="data-visualization">
+          <h2 className="section-title">📉 Seasonal Impact on A&E Attendances</h2>
+          <p className="section-description">
+            How do different seasons affect A&E visits? This chart shows **seasonal fluctuations** in patient numbers.
+          </p>
+          <div className="graph-container">
+            <SeasonalTrendsChart data={aeData} />
           </div>
         </div>
 

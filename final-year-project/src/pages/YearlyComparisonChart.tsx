@@ -1,79 +1,75 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-// Define the expected data structure
 interface AandEData {
   year: string;
-  type: string;
-  attendances: number;
+  type1: number;
+  type2: number;
+  type3: number;
 }
 
 interface Props {
   data: AandEData[];
-  selectedYear: string;
 }
 
-const YearlyComparisonChart: React.FC<Props> = ({ data, selectedYear }) => {
-  const chartRef = useRef<SVGSVGElement | null>(null);
+const YearlyComparisonChart: React.FC<Props> = ({ data }) => {
+  const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    if (!data || data.length === 0) return;
+    if (!data.length) return;
 
-    const svg = d3.select(chartRef.current);
-    svg.selectAll("*").remove(); // Clear old chart
+    const width = 600, height = 400;
+    const svg = d3.select(svgRef.current).attr("width", width).attr("height", height);
 
-    const width = 600,
-      height = 400,
-      margin = { top: 20, right: 30, bottom: 40, left: 50 };
+    // Clean previous chart
+    svg.selectAll("*").remove();
 
-    const filteredData = data
-      .filter((d) => d.year === selectedYear)
-      .map((d) => ({
-        ...d,
-        attendances: d.attendances || 0, // Ensure no undefined values
-      }));
+    // X & Y scales
+    const xScale = d3.scaleBand()
+      .domain(data.map(d => d.year))
+      .range([50, width - 50])
+      .padding(0.3);
 
-    if (filteredData.length === 0) return;
+    const yScale = d3.scaleLinear()
+      .domain([0, d3.max(data, d => d.type1 + d.type2 + d.type3) || 0])
+      .range([height - 50, 50]);
 
-    // Scales
-    const x = d3
-      .scaleBand()
-      .domain(filteredData.map((d) => d.type))
-      .range([margin.left, width - margin.right])
-      .padding(0.2);
+    // Define colors
+    const colors = d3.scaleOrdinal(["#1f77b4", "#ff7f0e", "#2ca02c"]); // Blue, Orange, Green
 
-    const y = d3
-      .scaleLinear()
-      .domain([0, d3.max(filteredData, (d) => d.attendances) ?? 0])
-      .nice()
-      .range([height - margin.bottom, margin.top]);
+    // Stacked Data
+    const stackedData = d3.stack<AandEData>()
+      .keys(["type1", "type2", "type3"])
+      (data);
 
-    // Append Axes
-    svg
+    // Draw Bars
+    svg.selectAll("g")
+      .data(stackedData)
+      .enter()
       .append("g")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x));
-
-    svg
-      .append("g")
-      .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(y));
-
-    // Append Bars
-    svg
-      .append("g")
+      .attr("fill", (_, i) => colors(i.toString()) as string)
       .selectAll("rect")
-      .data(filteredData)
+      .data(d => d)
       .enter()
       .append("rect")
-      .attr("x", (d) => x(d.type) || 0)
-      .attr("y", (d) => y(d.attendances))
-      .attr("width", x.bandwidth())
-      .attr("height", (d) => height - margin.bottom - y(d.attendances))
-      .attr("fill", "#3B82F6");
-  }, [data, selectedYear]);
+      .attr("x", d => xScale(d.data.year)!)
+      .attr("y", d => yScale(d[1]))
+      .attr("height", d => yScale(d[0]) - yScale(d[1]))
+      .attr("width", xScale.bandwidth());
 
-  return <svg ref={chartRef} width={600} height={400}></svg>;
+    // X-Axis
+    svg.append("g")
+      .attr("transform", `translate(0,${height - 50})`)
+      .call(d3.axisBottom(xScale));
+
+    // Y-Axis
+    svg.append("g")
+      .attr("transform", "translate(50,0)")
+      .call(d3.axisLeft(yScale));
+
+  }, [data]);
+
+  return <svg ref={svgRef}></svg>;
 };
 
 export default YearlyComparisonChart;
