@@ -1,68 +1,95 @@
-import React, { useState, useEffect } from "react";
-import { IonContent, IonPage } from "@ionic/react";
-import Header from "./Header";
-import "./AandEData.css";
-import YearlyComparisonChart from "./YearlyComparisonChart"; // D3 Bar Chart
-import SeasonalTrendsChart from "./SeasonalTrendsChart"; // D3 Line Chart
-import { fetchAandEData } from "../services/dataService";
+import React, { useEffect, useState } from "react";
+import Plot from "react-plotly.js";
+import Header from "./Header"; // ✅ Added Header component
+import Card from "../components/Card"; // ✅ Ensured correct import
 
-const AandEData: React.FC = () => {
-  const [aeData, setAeData] = useState<any[]>([]); // Ensuring data is an array
+const Predictions = () => {
+  const [predictions, setPredictions] = useState<{ actual: number; predicted: number }[]>([]);
+  const [mse, setMSE] = useState<number | null>(null);
+  const [r2, setR2] = useState<number | null>(null);
 
+  // Fetch predictions and model performance metrics
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetchAandEData();
-        if (Array.isArray(data)) {
-          setAeData(data);
+    fetch("/data/predictions.json") // ✅ Ensure correct path for deployment
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data.predictions)) {
+          setPredictions(data.predictions);
+          setMSE(data.mse);
+          setR2(data.r2);
         } else {
-          console.error("❌ Data is not an array:", data);
+          console.error("Invalid predictions data format:", data);
         }
-      } catch (error) {
-        console.error("Error fetching A&E data:", error);
-      }
-    };
-    getData();
+      })
+      .catch((error) => console.error("Error loading predictions:", error));
   }, []);
 
   return (
-    <IonPage>
+    <div>
+      {/* ✅ Header added at the top */}
       <Header />
-      <IonContent className="ion-padding">
 
-        {/* 🔹 SECTION 1: Data Overview */}
-        <div className="data-page-header">
-          <h1 className="page-title">📊 A&E Data Analysis</h1>
-          <p className="page-description">
-            This page visualizes **emergency department trends** based on **real hospital data**.
-          </p>
-        </div>
+      <div className="p-6">
+        <h1 className="text-2xl font-bold mb-4">📊 Model Predictions</h1>
 
-        {/* 🔹 SECTION 2: Yearly Comparison Bar Chart */}
-        <div className="data-visualization">
-          <h2 className="section-title">📈 Yearly A&E Attendance Trends</h2>
-          <p className="section-description">
-            This visualization breaks down **Type 1, Type 2, and Type 3** attendances across multiple years.
-          </p>
-          <div className="graph-container">
-            <YearlyComparisonChart data={aeData} />
-          </div>
-        </div>
+        {/* ✅ Model Performance Metrics */}
+        <Card className="p-4 mb-6">
+          <h2 className="text-lg font-semibold">📈 Model Performance</h2>
+          <p><strong>Mean Squared Error (MSE):</strong> {mse ? mse.toFixed(2) : "Loading..."}</p>
+          <p><strong>R² Score:</strong> {r2 ? r2.toFixed(2) : "Loading..."}</p>
+        </Card>
 
-        {/* 🔹 SECTION 3: Seasonal Trends Line Chart */}
-        <div className="data-visualization">
-          <h2 className="section-title">📉 Seasonal Impact on A&E Attendances</h2>
-          <p className="section-description">
-            How do different seasons affect A&E visits? This chart shows **seasonal fluctuations** in patient numbers.
-          </p>
-          <div className="graph-container">
-            <SeasonalTrendsChart data={aeData} />
-          </div>
-        </div>
+        {/* ✅ Actual vs. Predicted Table */}
+        <Card className="p-4 mb-6">
+          <h2 className="text-lg font-semibold">🔍 Actual vs. Predicted</h2>
+          <table className="w-full border-collapse border border-gray-300 mt-2">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border p-2">Actual</th>
+                <th className="border p-2">Predicted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {predictions.slice(0, 10).map((row, index) => ( // ✅ Limit table to 10 rows for performance
+                <tr key={index} className="border">
+                  <td className="border p-2">{row.actual.toLocaleString()}</td>
+                  <td className="border p-2">{row.predicted.toFixed(2)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Card>
 
-      </IonContent>
-    </IonPage>
+        {/* ✅ Prediction Visualization */}
+        <Card className="p-4">
+          <h2 className="text-lg font-semibold">📊 Prediction Visualization</h2>
+          <Plot
+            data={[
+              {
+                x: predictions.map((_, i) => i),
+                y: predictions.map((p) => p.actual),
+                type: "scatter",
+                mode: "lines+markers",
+                name: "Actual",
+              },
+              {
+                x: predictions.map((_, i) => i),
+                y: predictions.map((p) => p.predicted),
+                type: "scatter",
+                mode: "lines+markers",
+                name: "Predicted",
+              },
+            ]}
+            layout={{
+              title: "Actual vs. Predicted Attendance",
+              xaxis: { title: "Index" },
+              yaxis: { title: "Attendance" },
+            }}
+          />
+        </Card>
+      </div>
+    </div>
   );
 };
 
-export default AandEData;
+export default Predictions;
