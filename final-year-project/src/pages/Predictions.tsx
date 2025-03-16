@@ -12,7 +12,7 @@ const Predictions = () => {
 
       {/* Embed the Voila/Binder notebook */}
       <iframe
-        src="https://mybinder.org/v2/gh/yourusername/yourrepo/HEAD?filepath=your_notebook.ipynb"
+        src="https://mybinder.org/v2/gh/sophieboyle1/Final-Year-Project/main?filepath=src/predictions.ipynb"
         width="100%"
         height="800px"
         style={{ border: "1px solid #ddd", borderRadius: "8px" }}
