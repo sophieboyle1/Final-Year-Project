@@ -1,0 +1,15 @@
+.user-message {
+    justify-content: end;
+    text-align: right;
+  }
+  
+  .bot-message {
+    justify-content: start;
+    text-align: left;
+  }
+  
+  .ion-item {
+    --background: transparent;
+    border: none;
+  }
+  
