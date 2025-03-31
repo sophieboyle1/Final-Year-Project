@@ -1,15 +1,63 @@
-.user-message {
-    justify-content: end;
-    text-align: right;
+.chatbot-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: #f5f7fa;
   }
   
+  .chatbot-box {
+    width: 100%;
+    max-width: 600px;
+    height: 70vh;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+  
+  .user-message,
   .bot-message {
-    justify-content: start;
-    text-align: left;
+    margin: 6px 0;
+    display: flex;
   }
   
-  .ion-item {
-    --background: transparent;
-    border: none;
+  .user-message .message-text {
+    margin-left: auto;
+    background-color: #d1e7dd;
+    border-radius: 16px 16px 0 16px;
+    padding: 10px 14px;
+    max-width: 75%;
+  }
+  
+  .bot-message .message-text {
+    margin-right: auto;
+    background-color: #e2e3e5;
+    border-radius: 16px 16px 16px 0;
+    padding: 10px 14px;
+    max-width: 75%;
+  }
+  
+  .chatbot-footer {
+    background: #f5f7fa;
+    padding: 0.5rem;
+  }
+  
+  .footer-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .chat-input {
+    flex-grow: 1;
   }
   
