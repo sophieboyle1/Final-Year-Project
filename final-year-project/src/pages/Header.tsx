@@ -18,6 +18,7 @@ const Header: React.FC = () => {
           <IonButton className="nav-button" href="/data">A&E Data</IonButton>
           <IonButton className="nav-button" href="/reports">Reports</IonButton>
           <IonButton className="nav-button" href="/predictions">Predictions</IonButton>
+          <IonButton className="nav-button" href="/chatbot">Chatbot</IonButton>
         </IonButtons>
       </IonToolbar>
     </IonHeader>

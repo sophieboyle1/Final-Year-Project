@@ -10,6 +10,7 @@ import Tab1 from './pages/Home';
 import Reports from './pages/Reports';
 import Predictions from './pages/Predictions';
 import AandEData from './pages/A&EData';
+import Chatbot from './pages/Chatbot';
 import { useEffect, useState } from 'react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -45,7 +46,7 @@ const App: React.FC = () => {
     } catch (error) {
       console.error('Error fetching reports:', error);
     }
-  };  
+  };
 
   useEffect(() => {
     fetchReports();
@@ -53,27 +54,27 @@ const App: React.FC = () => {
 
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonTabs>
-          <IonRouterOutlet>
-            <Route exact path="/tab1">
-              <Tab1 />
-            </Route>
-            <Route path="/reports">
-              <Reports reportData={reportData} />
-            </Route>
-            <Route path="/predictions">
-              <Predictions />
-            </Route>
-            <Route path="/data">
-              <AandEData /> 
-            </Route>
-            <Route exact path="/">
-              <Redirect to="/tab1" />
-            </Route>
-          </IonRouterOutlet>
-        </IonTabs>
-      </IonReactRouter>
+      <IonRouterOutlet>
+        <Route exact path="/tab1">
+          <Tab1 />
+        </Route>
+        <Route path="/reports">
+          <Reports reportData={reportData} />
+        </Route>
+        <Route path="/predictions">
+          <Predictions />
+        </Route>
+        <Route path="/data">
+          <AandEData />
+        </Route>
+        <Route path="/chatbot">
+          <Chatbot />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/tab1" />
+        </Route>
+      </IonRouterOutlet>
+
     </IonApp>
   );
 };
