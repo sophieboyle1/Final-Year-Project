@@ -52,7 +52,6 @@ try:
     print(f"Date Range: {start_date} to {end_date}")
     print(f"Months Analyzed: {months_analyzed}")
 except KeyError:
-    # If 'date' column doesn't exist, try to create it
     try:
         df["date"] = pd.to_datetime(df["year"].astype(str) + "-" + df["month"], format="%Y-%B")
         start_date = df["date"].min().strftime("%B %Y")
@@ -62,8 +61,8 @@ except KeyError:
         print(f"Months Analyzed: {months_analyzed}")
     except:
         print("Could not determine date range (date column not found)")
-        
-# Save summary as JSON for frontend use
+
+# Save summary as JSON
 summary = {
     "total_attendances": round(total_attendances, 1),
     "hospital_systems": int(hospital_systems),
@@ -78,49 +77,88 @@ output_file = os.path.join(output_dir, "ae_summary.json")
 with open(output_file, "w") as f:
     json.dump(summary, f, indent=4)
 
-print(f"Saved summary data to {output_file}")
+print(f"✅ Saved summary data to {output_file}")
 
 # Generate Monthly Attendance JSON
 print("Generating monthly_attendance.json...")
 
-# Create pivot: average monthly attendance per year
 df["year"] = df["date"].dt.year
 df["month_name"] = df["date"].dt.month_name()
 month_order = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"]
 df["month_name"] = pd.Categorical(df["month_name"], categories=month_order, ordered=True)
 
-# Calculate total attendance by month and year
 monthly_data = df.groupby(["year", "month_name"])["total_a&e_attendances"].sum().reset_index()
-pivot = monthly_data.pivot(index="month_name", columns="year", values="total_a&e_attendances").fillna(0)
+pivot = monthly_data.pivot(index="month_name", columns="year", values="total_a&e_attendances")
+pivot = pivot.interpolate(method="linear", axis=0).bfill().ffill().round(2)
 
-# Print raw values to debug
 print("\nRaw monthly attendance values (first few rows):")
 print(pivot.head())
 
-# Calculate average monthly attendance across all hospital systems
-# and convert to millions with correct scaling
 monthly_attendance_json = {
     "labels": list(pivot.index),
     "datasets": [
         {
             "label": str(year),
-            # Properly scale to millions (divide by 1,000,000)
             "data": [round(val / 1_000_000, 2) for val in pivot[year]]
         }
         for year in pivot.columns
     ]
 }
 
-# Print transformed values to debug
-print("\nTransformed values for JSON (first dataset):")
-if len(monthly_attendance_json["datasets"]) > 0:
-    print(f"Year: {monthly_attendance_json['datasets'][0]['label']}")
-    print(f"Values: {monthly_attendance_json['datasets'][0]['data']}")
-
-# Save chart data
 monthly_output_file = os.path.join(output_dir, "monthly_attendance.json")
 with open(monthly_output_file, "w") as f:
     json.dump(monthly_attendance_json, f, indent=2)
 
 print(f"✅ Saved monthly attendance chart to {monthly_output_file}")
+
+# ------------------------
+# Generate Seasonal Attendance JSON
+# ------------------------
+print("Generating seasonal_attendance.json...")
+
+month_to_season = {
+    "January": "Winter", "February": "Winter", "December": "Winter",
+    "March": "Spring", "April": "Spring", "May": "Spring",
+    "June": "Summer", "July": "Summer", "August": "Summer",
+    "September": "Autumn", "October": "Autumn", "November": "Autumn",
+}
+
+# Create empty structure to hold totals
+seasonal_totals = {}
+season_counts = {}
+
+for year in pivot.columns:
+    seasonal_totals[year] = {"Winter": 0, "Spring": 0, "Summer": 0, "Autumn": 0}
+    season_counts[year] = {"Winter": 0, "Spring": 0, "Summer": 0, "Autumn": 0}
+    for month in pivot.index:
+        season = month_to_season.get(month)
+        value = pivot.at[month, year]
+        if pd.notna(value):
+            seasonal_totals[year][season] += value
+            season_counts[year][season] += 1
+
+# Build JSON
+season_labels = ["Winter", "Spring", "Summer", "Autumn"]
+seasonal_attendance_json = {
+    "labels": season_labels,
+    "datasets": []
+}
+
+for year in sorted(pivot.columns):
+    seasonal_values = []
+    for season in season_labels:
+        total = seasonal_totals[year][season]
+        count = season_counts[year][season]
+        avg = total / count if count > 0 else 0
+        seasonal_values.append(round(avg / 1_000_000, 2))
+    seasonal_attendance_json["datasets"].append({
+        "label": str(year),
+        "data": seasonal_values
+    })
+
+seasonal_output_file = os.path.join(output_dir, "seasonal_attendance.json")
+with open(seasonal_output_file, "w") as f:
+    json.dump(seasonal_attendance_json, f, indent=2)
+
+print(f"✅ Saved seasonal attendance chart to {seasonal_output_file}")
