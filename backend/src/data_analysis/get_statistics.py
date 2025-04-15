@@ -162,3 +162,42 @@ with open(seasonal_output_file, "w") as f:
     json.dump(seasonal_attendance_json, f, indent=2)
 
 print(f"✅ Saved seasonal attendance chart to {seasonal_output_file}")
+
+# ------------------------
+# Generate Performance Trend JSON
+# ------------------------
+print("Generating performance_trend.json...")
+
+# Total number over 4 hours (across all department types)
+df["total_over_4hrs"] = (
+    df["number_of_attendances_over_4hrs_type_1"] +
+    df["number_of_attendances_over_4hrs_type_2"] +
+    df["number_of_attendances_over_4hrs_other_a&e_department"]
+)
+
+# Calculate % seen within 4 hours
+df["seen_within_4hrs_percent"] = df.apply(
+    lambda row: max(0, min(100, 100 - (row["total_over_4hrs"] / row["total_a&e_attendances"] * 100)))
+    if row["total_a&e_attendances"] > 0 else 0,
+    axis=1
+)
+
+# Group by year and average the percentages
+performance_by_year = df.groupby("year")["seen_within_4hrs_percent"].mean().round(2).reset_index()
+
+# Build JSON format
+performance_json = {
+    "labels": performance_by_year["year"].astype(str).tolist(),
+    "datasets": [{
+        "label": "% Patients Seen Within 4 Hours",
+        "data": performance_by_year["seen_within_4hrs_percent"].tolist(),
+        "backgroundColor": "#3366CC"
+    }]
+}
+
+# Save to file
+performance_output_file = os.path.join(output_dir, "performance_trend.json")
+with open(performance_output_file, "w") as f:
+    json.dump(performance_json, f, indent=2)
+
+print(f"✅ Saved performance trend chart to {performance_output_file}")
