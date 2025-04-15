@@ -61,3 +61,21 @@ except KeyError:
         print(f"Months Analyzed: {months_analyzed}")
     except:
         print("Could not determine date range (date column not found)")
+        
+# Save summary as JSON for frontend use
+summary = {
+    "total_attendances": round(total_attendances, 1),
+    "hospital_systems": int(hospital_systems),
+    "date_range": f"{start_date} to {end_date}",
+    "months_analyzed": int(months_analyzed)
+}
+
+output_dir = os.path.join(project_dir, "Final-Year-Project", "public", "data")
+os.makedirs(output_dir, exist_ok=True)
+
+output_file = os.path.join(output_dir, "ae_summary.json")
+with open(output_file, "w") as f:
+    import json
+    json.dump(summary, f, indent=4)
+
+print(f"Saved summary data to {output_file}")
