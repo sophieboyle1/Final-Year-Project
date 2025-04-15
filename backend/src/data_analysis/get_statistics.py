@@ -70,7 +70,7 @@ summary = {
     "months_analyzed": int(months_analyzed)
 }
 
-output_dir = os.path.join(project_dir, "Final-Year-Project", "final-year-yroject", "public", "data")
+output_dir = os.path.join(project_dir, "Final-Year-Project", "public", "data")
 os.makedirs(output_dir, exist_ok=True)
 
 output_file = os.path.join(output_dir, "ae_summary.json")
