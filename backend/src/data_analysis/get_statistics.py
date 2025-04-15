@@ -70,7 +70,7 @@ summary = {
     "months_analyzed": int(months_analyzed)
 }
 
-output_dir = os.path.join(project_dir, "Final-Year-Project", "public", "data")
+output_dir = os.path.join(project_dir, "Final-Year-Project", "final-year-yroject", "public", "data")
 os.makedirs(output_dir, exist_ok=True)
 
 output_file = os.path.join(output_dir, "ae_summary.json")
@@ -79,3 +79,34 @@ with open(output_file, "w") as f:
     json.dump(summary, f, indent=4)
 
 print(f"Saved summary data to {output_file}")
+
+# Generate Monthly Attendance JSON
+print("Generating monthly_attendance.json...")
+
+# Create pivot: average monthly attendance per year
+df["year"] = df["date"].dt.year
+df["month_name"] = df["date"].dt.month_name()
+month_order = ["January", "February", "March", "April", "May", "June",
+               "July", "August", "September", "October", "November", "December"]
+df["month_name"] = pd.Categorical(df["month_name"], categories=month_order, ordered=True)
+
+monthly_data = df.groupby(["year", "month_name"])["total_a&e_attendances"].mean().reset_index()
+pivot = monthly_data.pivot(index="month_name", columns="year", values="total_a&e_attendances").fillna(0)
+
+monthly_attendance_json = {
+    "labels": list(pivot.index),
+    "datasets": [
+        {
+            "label": str(year),
+            "data": [round(val / 1_000_000, 2) for val in pivot[year]]
+        }
+        for year in pivot.columns
+    ]
+}
+
+# Save chart data
+monthly_output_file = os.path.join(output_dir, "monthly_attendance.json")
+with open(monthly_output_file, "w") as f:
+    json.dump(monthly_attendance_json, f, indent=2)
+
+print(f"✅ Saved monthly attendance chart to {monthly_output_file}")
