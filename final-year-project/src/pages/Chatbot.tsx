@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // 🆕 Added useEffect
+import React, { useState, useEffect } from 'react';
 import './Chatbot.css';
 import {
     IonPage,
@@ -17,9 +17,9 @@ import {
 const Chatbot: React.FC = () => {
     const [messages, setMessages] = useState<{ from: string; text: string }[]>([]);
     const [input, setInput] = useState('');
-    const [predictionsData, setPredictionsData] = useState<any>(null); // 🆕 Holds your JSON predictions
+    const [predictionsData, setPredictionsData] = useState<any>(null);
 
-    // 🧠 Load predictions.json once when component mounts
+    // Load predictions.json once when component mounts
     useEffect(() => {
         fetch('./public/predictions.json')
             .then((res) => res.json())
@@ -38,7 +38,7 @@ const Chatbot: React.FC = () => {
         if (predictionsData) {
             const lowerInput = input.toLowerCase();
 
-            // 🧠 Try to find a hospital + date match
+            // Try to find a hospital + date match
             const match = predictionsData.predictions.find((record: any) => {
                 return lowerInput.includes(record.org_name.toLowerCase()) &&
                        lowerInput.includes(record.date);
