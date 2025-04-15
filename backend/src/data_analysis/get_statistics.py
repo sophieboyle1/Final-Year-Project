@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import json
 
 # Print current working directory
 print(f"Current working directory: {os.getcwd()}")
@@ -75,7 +76,6 @@ os.makedirs(output_dir, exist_ok=True)
 
 output_file = os.path.join(output_dir, "ae_summary.json")
 with open(output_file, "w") as f:
-    import json
     json.dump(summary, f, indent=4)
 
 print(f"Saved summary data to {output_file}")
@@ -90,19 +90,33 @@ month_order = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"]
 df["month_name"] = pd.Categorical(df["month_name"], categories=month_order, ordered=True)
 
-monthly_data = df.groupby(["year", "month_name"])["total_a&e_attendances"].mean().reset_index()
+# Calculate total attendance by month and year
+monthly_data = df.groupby(["year", "month_name"])["total_a&e_attendances"].sum().reset_index()
 pivot = monthly_data.pivot(index="month_name", columns="year", values="total_a&e_attendances").fillna(0)
 
+# Print raw values to debug
+print("\nRaw monthly attendance values (first few rows):")
+print(pivot.head())
+
+# Calculate average monthly attendance across all hospital systems
+# and convert to millions with correct scaling
 monthly_attendance_json = {
     "labels": list(pivot.index),
     "datasets": [
         {
             "label": str(year),
+            # Properly scale to millions (divide by 1,000,000)
             "data": [round(val / 1_000_000, 2) for val in pivot[year]]
         }
         for year in pivot.columns
     ]
 }
+
+# Print transformed values to debug
+print("\nTransformed values for JSON (first dataset):")
+if len(monthly_attendance_json["datasets"]) > 0:
+    print(f"Year: {monthly_attendance_json['datasets'][0]['label']}")
+    print(f"Values: {monthly_attendance_json['datasets'][0]['data']}")
 
 # Save chart data
 monthly_output_file = os.path.join(output_dir, "monthly_attendance.json")
