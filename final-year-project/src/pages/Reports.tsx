@@ -1,7 +1,7 @@
 import React from "react";
 import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
-import RidgelineChart from "./RidgelineChart"; // Import the D3 chart
+import RidgelineChart from "./RidgelineChart";
 import "./Reports.css";
 
 const Reports: React.FC = () => {
@@ -9,41 +9,20 @@ const Reports: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-        {/* SECTION 1: Key Insights */}
-        <div className="insights-container">
-          <h2 className="section-title">🔍 Key Findings & Insights</h2>
-          <p className="section-description">
-            A&E attendance patterns reveal critical trends based on seasonal changes, holidays, and external factors.
-            Below are the key insights from real and synthetic data analysis:
+        <section className="reports-intro">
+          <h2>Technical Reports & Data Preprocessing</h2>
+          <p>
+            This section provides a detailed breakdown of the technical work that powered the A&E data analysis
+            and prediction models. While the A&E Data Page highlights key findings, this page focuses on
+            the behind-the-scenes processes: how raw NHS data was cleaned, enhanced, and transformed into a
+            structured format suitable for machine learning.
           </p>
-          <ul className="insights-list">
-            <li>📈 **Hospital attendances peak during winter months, especially in December.**</li>
-            <li>📉 **Non-holiday months show slightly lower demand compared to holiday periods.**</li>
-            <li>🧪 **Synthetic data trends closely match real data, validating our modeling approach.**</li>
-            <li>⏳ **Waiting times increase significantly during flu season and public holidays.**</li>
-            <li>🔍 **Machine learning predictions indicate rising A&E demand over the next quarter.**</li>
-          </ul>
-        </div>
-
-        {/* SECTION 2: Data Visualizations */}
-        <div className="reports-section">
-          <h2 className="section-title">📊 Interactive Data Visualizations</h2>
-          <p className="section-description">
-            Explore the trends in A&E attendances, compare real vs. synthetic datasets, 
-            and analyze seasonal variations.
+          <p>
+            You’ll find explanations on how missing months were handled, how synthetic values were generated,
+            what feature engineering techniques were applied, and why these steps were crucial for
+            producing accurate and reliable predictions.
           </p>
-
-          {/* Graph 1 - Real vs. Synthetic Data */}
-          <div className="chart-container">
-            <h3>🧪 Real vs. Synthetic Data Comparison</h3>
-          </div>
-
-          {/* Graph 2 - Seasonal Trends */}
-          <div className="chart-container">
-            <h3>📆 Seasonal Trends & Holiday Impact</h3>
-            <RidgelineChart /> {/* Embed the D3 Chart */}
-          </div>
-        </div>
+        </section>
       </IonContent>
     </IonPage>
   );
