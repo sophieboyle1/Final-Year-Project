@@ -23,14 +23,6 @@
   ],
   "bottom_5": [
     {
-      "org_name": "ROSSENDALE MIU & OOH",
-      "attendances": 31200
-    },
-    {
-      "org_name": "READING URGENT CARE CENTRE",
-      "attendances": 21731
-    },
-    {
       "org_name": "BELMONT HEALTH CENTRE",
       "attendances": 17172
     },
@@ -41,6 +33,14 @@
     {
       "org_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST",
       "attendances": 8659
+    },
+    {
+      "org_name": "CALDER COMMUNITY PRACTICE",
+      "attendances": 0
+    },
+    {
+      "org_name": "0",
+      "attendances": 0
     }
   ]
 }

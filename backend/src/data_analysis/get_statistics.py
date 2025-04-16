@@ -1,12 +1,15 @@
 import pandas as pd
 import os
 import json
+import numpy as np
+from scipy import stats
 
 # Print current working directory
 print(f"Current working directory: {os.getcwd()}")
 
 # Go up to the main project directory
-project_dir = os.path.abspath(os.path.join(os.getcwd(), "../../.."))
+project_dir = os.path.dirname(os.path.abspath(__file__))
+
 print(f"Project directory: {project_dir}")
 
 # Function to find a file recursively
@@ -34,6 +37,14 @@ if not found_file:
 
 # Load the dataset
 df = pd.read_csv(found_file)
+
+# Clean total_a&e_attendances column before calculations
+df["total_a&e_attendances"] = pd.to_numeric(df["total_a&e_attendances"], errors="coerce")
+# Replace infinite values with NaN
+df["total_a&e_attendances"].replace([np.inf, -np.inf], np.nan, inplace=True)
+# Fill NaN with median value
+median_value = df["total_a&e_attendances"].median()
+df["total_a&e_attendances"].fillna(median_value, inplace=True)
 
 # Total Attendances
 total_attendances = df["total_a&e_attendances"].sum()
@@ -70,7 +81,8 @@ summary = {
     "months_analyzed": int(months_analyzed)
 }
 
-output_dir = os.path.join(project_dir, "Final-Year-Project", "public", "data")
+output_dir = os.path.abspath(os.path.join(project_dir, "../../../final-year-project/public/data"))
+
 os.makedirs(output_dir, exist_ok=True)
 
 output_file = os.path.join(output_dir, "ae_summary.json")
@@ -88,7 +100,8 @@ month_order = ["January", "February", "March", "April", "May", "June",
                "July", "August", "September", "October", "November", "December"]
 df["month_name"] = pd.Categorical(df["month_name"], categories=month_order, ordered=True)
 
-monthly_data = df.groupby(["year", "month_name"])["total_a&e_attendances"].sum().reset_index()
+# Use observed=True parameter to avoid FutureWarning
+monthly_data = df.groupby(["year", "month_name"], observed=True)["total_a&e_attendances"].sum().reset_index()
 pivot = monthly_data.pivot(index="month_name", columns="year", values="total_a&e_attendances")
 pivot = pivot.interpolate(method="linear", axis=0).bfill().ffill().round(2)
 
@@ -168,6 +181,17 @@ print(f"✅ Saved seasonal attendance chart to {seasonal_output_file}")
 # ------------------------
 print("Generating performance_trend.json...")
 
+# Ensure the columns exist, using default values of 0 if they don't
+number_cols = ["number_of_attendances_over_4hrs_type_1", 
+               "number_of_attendances_over_4hrs_type_2", 
+               "number_of_attendances_over_4hrs_other_a&e_department"]
+
+for col in number_cols:
+    if col not in df.columns:
+        df[col] = 0
+    else:
+        df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
 # Total number over 4 hours (across all department types)
 df["total_over_4hrs"] = (
     df["number_of_attendances_over_4hrs_type_1"] +
@@ -230,15 +254,45 @@ print(f"✅ Saved regional comparison chart to {regional_output_file}")
 # ------------------------
 print("Generating funnel_data.json...")
 
-# Total seen within 4 hours = total attendances - total over 4 hours
+# Clean all relevant columns safely
+cols_to_clean = [
+    "total_a&e_attendances",
+    "number_of_attendances_over_4hrs_type_1",
+    "number_of_attendances_over_4hrs_type_2",
+    "number_of_attendances_over_4hrs_other_a&e_department",
+    "emergency_admissions_via_a&e_-_type_1",
+    "emergency_admissions_via_a&e_-_type_2",
+    "emergency_admissions_via_a&e_-_other_a&e_department",
+    "other_emergency_admissions"
+]
+
+for col in cols_to_clean:
+    if col in df.columns:
+        df[col] = pd.to_numeric(df.get(col, 0), errors="coerce").replace([float('inf'), -float('inf')], pd.NA).fillna(0)
+    else:
+        df[col] = 0
+
+# Compute columns
 df["total_over_4hrs"] = (
     df["number_of_attendances_over_4hrs_type_1"] +
     df["number_of_attendances_over_4hrs_type_2"] +
     df["number_of_attendances_over_4hrs_other_a&e_department"]
 )
+
 seen_within_4hrs = df["total_a&e_attendances"].sum() - df["total_over_4hrs"].sum()
 
-# Emergency admissions
+# Add emergency admissions columns if they don't exist
+emergency_cols = ["emergency_admissions_via_a&e_-_type_1", 
+                  "emergency_admissions_via_a&e_-_type_2", 
+                  "emergency_admissions_via_a&e_-_other_a&e_department",
+                  "other_emergency_admissions"]
+                  
+for col in emergency_cols:
+    if col not in df.columns:
+        df[col] = 0
+    else:
+        df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
 df["total_emergency_admissions"] = (
     df["emergency_admissions_via_a&e_-_type_1"] +
     df["emergency_admissions_via_a&e_-_type_2"] +
@@ -246,19 +300,73 @@ df["total_emergency_admissions"] = (
     df["other_emergency_admissions"]
 )
 
-funnel_json = {
-    "stages": ["Total Attendances", "Seen Within 4 Hours", "Admitted to Hospital"],
-    "values": [
-        int(df["total_a&e_attendances"].sum()),
-        int(seen_within_4hrs),
-        int(df["total_emergency_admissions"].sum())
+# Ensure final values are safe before casting to int
+total_attendances_val = df["total_a&e_attendances"].sum()
+seen_within_val = seen_within_4hrs
+admitted_val = df["total_emergency_admissions"].sum()
+
+if all(pd.notna([total_attendances_val, seen_within_val, admitted_val])):
+    funnel_json = {
+        "stages": ["Total Attendances", "Seen Within 4 Hours", "Admitted to Hospital"],
+        "values": [
+            int(round(total_attendances_val)),
+            int(round(seen_within_val)),
+            int(round(admitted_val))
+        ]
+    }
+
+    funnel_output_file = os.path.join(output_dir, "funnel_data.json")
+    with open(funnel_output_file, "w") as f:
+        json.dump(funnel_json, f, indent=2)
+
+    print(f"✅ Saved funnel data chart to {funnel_output_file}")
+else:
+    print("⚠️ Funnel chart skipped due to invalid numeric values.")
+
+# ------------------------
+# Generate Z-score Anomaly Chart JSON
+# ------------------------
+print("Generating zscore_anomalies.json...")
+
+from scipy import stats  # make sure this is imported near the top
+
+# Step 1: Group by month and sum total attendances
+monthly_df = df.groupby(df["date"].dt.to_period("M")).agg({
+    "total_a&e_attendances": "sum"
+}).reset_index()
+
+# Step 2: Convert period back to timestamp
+monthly_df["date"] = monthly_df["date"].dt.to_timestamp()
+
+# Step 3: Calculate Z-score and flag outliers
+monthly_df["attendance_zscore"] = np.abs(stats.zscore(monthly_df["total_a&e_attendances"], nan_policy='omit'))
+monthly_df["is_outlier"] = monthly_df["attendance_zscore"] > 3.0
+
+# Step 4: Create chart-friendly JSON
+zscore_data = {
+    "labels": monthly_df["date"].dt.strftime("%b %Y").tolist(),
+    "datasets": [
+        {
+            "label": "Monthly A&E Attendances",
+            "data": monthly_df["total_a&e_attendances"].tolist(),
+            "borderColor": "#3366CC",
+            "backgroundColor": "transparent",
+            "tension": 0.3,
+            "pointBackgroundColor": [
+                "#DC3912" if outlier else "#3366CC"
+                for outlier in monthly_df["is_outlier"]
+            ],
+            "pointRadius": [
+                6 if outlier else 2
+                for outlier in monthly_df["is_outlier"]
+            ],
+        }
     ]
 }
 
-# Save it
-funnel_output_file = os.path.join(output_dir, "funnel_data.json")
-with open(funnel_output_file, "w") as f:
-    json.dump(funnel_json, f, indent=2)
+# Step 5: Save the file
+zscore_output_file = os.path.join(output_dir, "zscore_anomalies.json")
+with open(zscore_output_file, "w") as f:
+    json.dump(zscore_data, f, indent=2)
 
-print(f"✅ Saved funnel data chart to {funnel_output_file}")
-
+print(f"✅ Saved Z-score anomalies chart to {zscore_output_file}")
