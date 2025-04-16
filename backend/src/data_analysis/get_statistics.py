@@ -225,3 +225,40 @@ with open(regional_output_file, "w") as f:
 
 print(f"✅ Saved regional comparison chart to {regional_output_file}")
 
+# ------------------------
+# Generate Patient Pathway Funnel JSON
+# ------------------------
+print("Generating funnel_data.json...")
+
+# Total seen within 4 hours = total attendances - total over 4 hours
+df["total_over_4hrs"] = (
+    df["number_of_attendances_over_4hrs_type_1"] +
+    df["number_of_attendances_over_4hrs_type_2"] +
+    df["number_of_attendances_over_4hrs_other_a&e_department"]
+)
+seen_within_4hrs = df["total_a&e_attendances"].sum() - df["total_over_4hrs"].sum()
+
+# Emergency admissions
+df["total_emergency_admissions"] = (
+    df["emergency_admissions_via_a&e_-_type_1"] +
+    df["emergency_admissions_via_a&e_-_type_2"] +
+    df["emergency_admissions_via_a&e_-_other_a&e_department"] +
+    df["other_emergency_admissions"]
+)
+
+funnel_json = {
+    "stages": ["Total Attendances", "Seen Within 4 Hours", "Admitted to Hospital"],
+    "values": [
+        int(df["total_a&e_attendances"].sum()),
+        int(seen_within_4hrs),
+        int(df["total_emergency_admissions"].sum())
+    ]
+}
+
+# Save it
+funnel_output_file = os.path.join(output_dir, "funnel_data.json")
+with open(funnel_output_file, "w") as f:
+    json.dump(funnel_json, f, indent=2)
+
+print(f"✅ Saved funnel data chart to {funnel_output_file}")
+
