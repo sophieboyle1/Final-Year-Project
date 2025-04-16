@@ -201,3 +201,27 @@ with open(performance_output_file, "w") as f:
     json.dump(performance_json, f, indent=2)
 
 print(f"✅ Saved performance trend chart to {performance_output_file}")
+
+# ------------------------
+# Generate Regional Comparison JSON
+# ------------------------
+print("Generating regional_comparison.json...")
+
+# Remove rows with weird org names like 'TOTAL' variants
+valid_df = df[~df["org_name"].str.strip().str.upper().isin(["TOTAL"])]
+
+regional_totals = valid_df.groupby("org_name")["total_a&e_attendances"].sum().sort_values(ascending=False)
+top_5 = regional_totals.head(5)
+bottom_5 = regional_totals.tail(5)
+
+regional_json = {
+    "top_5": [{"org_name": name, "attendances": int(val)} for name, val in top_5.items()],
+    "bottom_5": [{"org_name": name, "attendances": int(val)} for name, val in bottom_5.items()]
+}
+
+regional_output_file = os.path.join(output_dir, "regional_comparison.json")
+with open(regional_output_file, "w") as f:
+    json.dump(regional_json, f, indent=2)
+
+print(f"✅ Saved regional comparison chart to {regional_output_file}")
+
