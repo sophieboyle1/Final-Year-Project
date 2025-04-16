@@ -1,0 +1,46 @@
+{
+  "top_5": [
+    {
+      "org_name": "BARTS HEALTH NHS TRUST",
+      "attendances": 2254129
+    },
+    {
+      "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+      "attendances": 2012163
+    },
+    {
+      "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+      "attendances": 1827044
+    },
+    {
+      "org_name": "MID AND SOUTH ESSEX NHS FOUNDATION TRUST",
+      "attendances": 1713506
+    },
+    {
+      "org_name": "UNIVERSITY HOSPITALS OF DERBY AND BURTON NHS FOUNDATION TRUST",
+      "attendances": 1573000
+    }
+  ],
+  "bottom_5": [
+    {
+      "org_name": "ROSSENDALE MIU & OOH",
+      "attendances": 31200
+    },
+    {
+      "org_name": "READING URGENT CARE CENTRE",
+      "attendances": 21731
+    },
+    {
+      "org_name": "BELMONT HEALTH CENTRE",
+      "attendances": 17172
+    },
+    {
+      "org_name": "BRIDLINGTON HOSPITAL",
+      "attendances": 9383
+    },
+    {
+      "org_name": "HAMPSHIRE AND ISLE OF WIGHT HEALTHCARE NHS FOUNDATION TRUST",
+      "attendances": 8659
+    }
+  ]
+}

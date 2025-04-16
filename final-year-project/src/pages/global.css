@@ -1,0 +1,20 @@
+ion-content {
+    --overflow: auto;
+    height: auto !important;
+  }
+  
+  .ion-page {
+    height: auto !important;
+    contain: none !important;
+  }
+  
+  .scroll-content {
+    overflow-y: auto !important;
+  }
+  
+  /* Additional global styles for scrolling */
+  html, body, #root {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
+  }

@@ -1,0 +1,12 @@
+{
+  "stages": [
+    "Total Attendances",
+    "Seen Within 4 Hours",
+    "Admitted to Hospital"
+  ],
+  "values": [
+    121361980,
+    113837647,
+    59518860
+  ]
+}
