@@ -63,22 +63,43 @@ const Reports: React.FC = () => {
         <section className="report-section">
           <h2>Data Cleaning Pipeline</h2>
           <p>
-            The original NHS A&E dataset contained several quality issues, including missing months,
-            inconsistent formatting, and outliers introduced during the COVID-19 period. To ensure a
-            reliable foundation for analysis and modelling, a multi-step data cleaning process was applied:
+            The A&E dataset was cleaned and transformed through a multi-step process to address missing data, anomalies,
+            and formatting issues. Each step ensured the final dataset was complete and consistent over 60 months.
           </p>
-          <ul>
-            <li><strong>Date Parsing & Consistency:</strong> Combined separate <code>year</code> and <code>month</code> columns into a single <code>date</code> field for easier time-based operations.</li>
-            <li><strong>Missing Data Identification:</strong> Detected gaps in the time series, especially in early 2020 and mid-2022, using row counts and timestamp gaps.</li>
-            <li><strong>Synthetic Data Filling:</strong> Generated synthetic rows using linear interpolation and domain-informed averages to fill missing/corrupt months. This preserved overall trends while smoothing volatility.</li>
-            <li><strong>Z-score Detection:</strong> Applied statistical z-score analysis to flag anomalous spikes or drops, which were reviewed and optionally corrected if inconsistent with neighboring months.</li>
-            <li><strong>Outlier Tagging:</strong> Added flags (<code>is_outlier</code>, <code>is_anomaly</code>) to track cleaned rows for transparency and potential exclusion during model training.</li>
-          </ul>
-          <p>
-            These steps ensured a complete, clean time series of 60 months across all hospitals. The final
-            dataset was then used to generate feature-engineered versions and JSON exports for the dashboard.
-          </p>
+
+          <div className="cleaning-cards">
+            <div className="card">
+              <img src="/images/icon_date.png" alt="Date Parsing" />
+              <h3>Date Parsing</h3>
+              <p>Merged <code>year</code> and <code>month</code> into a single <code>date</code> field for consistent time-series analysis.</p>
+            </div>
+
+            <div className="card">
+              <img src="/images/icon_missing.png" alt="Missing Data" />
+              <h3>Missing Data</h3>
+              <p>Detected and flagged gaps in the monthly timeline using row counts and timestamp tracking.</p>
+            </div>
+
+            <div className="card">
+              <img src="/images/icon_synthetic.png" alt="Synthetic Filling" />
+              <h3>Synthetic Filling</h3>
+              <p>Used linear interpolation and domain knowledge to fill missing or corrupt data while preserving trends.</p>
+            </div>
+
+            <div className="card">
+              <img src="/images/icon_zscore.png" alt="Z-score Detection" />
+              <h3>Z-Score Detection</h3>
+              <p>Flagged unusually high or low values (like April 2020 or July 2021) based on statistical deviation.</p>
+            </div>
+
+            <div className="card">
+              <img src="/images/icon_flags.png" alt="Outlier Flags" />
+              <h3>Outlier Flags</h3>
+              <p>Tagged rows with <code>is_outlier</code> or <code>is_anomaly</code> for downstream filtering and model training.</p>
+            </div>
+          </div>
         </section>
+
 
         <section className="report-section">
           <h2>Z-Score Anomalies Chart</h2>
