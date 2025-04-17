@@ -129,7 +129,7 @@ const Reports: React.FC = () => {
         <section className="report-section">
           <h2>Model Training & Evaluation</h2>
           <p>
-            To forecast future A&E attendances, we trained a <strong>Random Forest Regressor</strong> on 80% of the cleaned dataset, leaving the remaining 20% for testing. This model was selected after comparing several alternatives and balancing accuracy, speed, and interpretability.
+            To forecast future A&E attendances, I trained a <strong>Random Forest Regressor</strong> on 80% of the cleaned dataset, leaving the remaining 20% for testing. This model was selected after comparing several alternatives and balancing accuracy, speed, and interpretability.
           </p>
 
           <table className="metrics-table">
@@ -162,6 +162,48 @@ const Reports: React.FC = () => {
             The most impactful features during training were: <strong>recent attendance trends</strong>, <strong>month of the year</strong>, and <strong>lag values</strong> that captured historical patterns.
           </p>
         </section>
+
+        <section className="report-section">
+  <h2>Feature Engineering</h2>
+  <p>
+    Raw A&E attendance data alone wasn’t enough — I engineered new features to help the machine learning model learn patterns more effectively. These features added context, captured seasonality, and improved accuracy.
+  </p>
+
+  <div className="feature-list">
+    <div className="feature-item">
+      <img src="/images/icon_calendar.png" alt="Time Features" />
+      <h3>Time-Based Features</h3>
+      <p>
+        Extracted <strong>month</strong>, <strong>year</strong>, <strong>day of week</strong>, and <strong>season</strong> to reflect predictable seasonal trends in A&E activity.
+      </p>
+    </div>
+
+    <div className="feature-item">
+      <img src="/images/icon_trend.png" alt="Rolling Averages" />
+      <h3>Rolling Averages</h3>
+      <p>
+        Calculated <strong>3-month moving averages</strong> to capture recent trends and smooth out short-term spikes or drops.
+      </p>
+    </div>
+
+    <div className="feature-item">
+      <img src="/images/icon_lag.png" alt="Lag Features" />
+      <h3>Lag Features</h3>
+      <p>
+        Included attendances from previous months (<strong>1-month and 3-month lags</strong>) to help the model learn from historical patterns.
+      </p>
+    </div>
+
+    <div className="feature-item">
+      <img src="/images/icon_hospital.png" alt="Hospital Metadata" />
+      <h3>Hospital Metadata</h3>
+      <p>
+        Incorporated <strong>organization size</strong>, <strong>type</strong>, and <strong>region</strong> to adjust for variation between facilities.
+      </p>
+    </div>
+  </div>
+</section>
+
 
       </IonContent>
     </IonPage>

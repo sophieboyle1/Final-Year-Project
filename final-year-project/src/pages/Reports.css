@@ -63,3 +63,44 @@
   font-weight: bold;
 }
 
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.feature-item {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  flex: 1 1 45%;
+  min-width: 280px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.feature-item:hover {
+  transform: translateY(-4px);
+}
+
+.feature-item img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.feature-item h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #444;
+}
+
