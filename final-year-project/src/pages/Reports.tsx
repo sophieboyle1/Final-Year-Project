@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
 import Chart from "chart.js/auto";
@@ -6,8 +6,10 @@ import "./Reports.css";
 
 const Reports: React.FC = () => {
   const anomalyChartRef = useRef<Chart | null>(null);
+  const [predictionsData, setPredictionsData] = useState<{ mse: number; r2: number } | null>(null);
 
   useEffect(() => {
+    // Fetch Z-score anomaly data for chart
     fetch("/data/zscore_anomalies.json")
       .then((res) => res.json())
       .then((data) => {
@@ -41,7 +43,19 @@ const Reports: React.FC = () => {
         }
       })
       .catch((err) => console.error("Failed to load zscore_anomalies.json:", err));
+
+    // Fetch prediction metrics (R² and MSE)
+    fetch("/data/predictions.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setPredictionsData({
+          mse: data.mse,
+          r2: data.r2,
+        });
+      })
+      .catch((err) => console.error("Failed to load predictions.json:", err));
   }, []);
+
 
   return (
     <IonPage>
@@ -99,8 +113,6 @@ const Reports: React.FC = () => {
             </div>
           </div>
         </section>
-
-
         <section className="report-section">
           <h2>Z-Score Anomalies Chart</h2>
           <div style={{ height: "250px", maxWidth: "100%" }}>
@@ -113,6 +125,44 @@ const Reports: React.FC = () => {
             ⚠️ The red dot in July 2021 highlights an anomaly likely caused by synthetic data filling during a month with missing or corrupted values. Z-score detection flagged it as an outlier due to an unexpected drop in attendances.
           </p>
         </section>
+
+        <section className="report-section">
+          <h2>Model Training & Evaluation</h2>
+          <p>
+            To forecast future A&E attendances, we trained a <strong>Random Forest Regressor</strong> on 80% of the cleaned dataset, leaving the remaining 20% for testing. This model was selected after comparing several alternatives and balancing accuracy, speed, and interpretability.
+          </p>
+
+          <table className="metrics-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>R² Score</strong></td>
+                <td>{predictionsData ? predictionsData.r2.toFixed(2) : "Loading..."}</td>
+                <td>Explains approximately <strong>{predictionsData ? (predictionsData.r2 * 100).toFixed(1) + "%" : ""}</strong> of the variance in A&E attendances — a solid fit for real-world forecasting.</td>
+              </tr>
+              <tr>
+                <td><strong>MSE</strong></td>
+                <td>{predictionsData ? predictionsData.mse.toFixed(2) : "Loading..."}</td>
+                <td>The average squared difference between actual and predicted values, measuring model error.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            While simpler models like Linear Regression performed well during evaluation, the Random Forest offered better robustness across unpredictable events. Deep learning approaches like LSTM were tested but required more data and tuning to outperform traditional methods.
+          </p>
+
+          <p>
+            The most impactful features during training were: <strong>recent attendance trends</strong>, <strong>month of the year</strong>, and <strong>lag values</strong> that captured historical patterns.
+          </p>
+        </section>
+
       </IonContent>
     </IonPage>
   );
