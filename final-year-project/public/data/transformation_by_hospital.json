@@ -1,0 +1,182 @@
+{
+  "ALL": {
+    "labels": [
+      "Jan 2023",
+      "Feb 2023",
+      "Mar 2023"
+    ],
+    "datasets": [
+      {
+        "label": "Raw Attendance",
+        "data": [
+          1500,
+          1600,
+          1550
+        ],
+        "borderColor": "#8884d8"
+      },
+      {
+        "label": "Cleaned Attendance",
+        "data": [
+          1500,
+          1600,
+          1550
+        ],
+        "borderColor": "#82ca9d"
+      },
+      {
+        "label": "Rolling Avg (3mo)",
+        "data": [
+          1500,
+          1550,
+          1550
+        ],
+        "borderColor": "#ffc658"
+      },
+      {
+        "label": "Lag 1 Month",
+        "data": [
+          0,
+          1500,
+          1600
+        ],
+        "borderColor": "#ff7300"
+      }
+    ]
+  },
+  "Liverpool University Hospitals": {
+    "labels": [
+      "Jan 2023",
+      "Feb 2023",
+      "Mar 2023"
+    ],
+    "datasets": [
+      {
+        "label": "Raw Attendance",
+        "data": [
+          1000,
+          1100,
+          1050
+        ],
+        "borderColor": "#8884d8"
+      },
+      {
+        "label": "Cleaned Attendance",
+        "data": [
+          1000,
+          1100,
+          1050
+        ],
+        "borderColor": "#82ca9d"
+      },
+      {
+        "label": "Rolling Avg (3mo)",
+        "data": [
+          1000,
+          1050,
+          1050
+        ],
+        "borderColor": "#ffc658"
+      },
+      {
+        "label": "Lag 1 Month",
+        "data": [
+          0,
+          1000,
+          1100
+        ],
+        "borderColor": "#ff7300"
+      }
+    ]
+  },
+  "Manchester University NHS Trust": {
+    "labels": [
+      "Jan 2023",
+      "Feb 2023",
+      "Mar 2023"
+    ],
+    "datasets": [
+      {
+        "label": "Raw Attendance",
+        "data": [
+          2000,
+          2100,
+          2050
+        ],
+        "borderColor": "#8884d8"
+      },
+      {
+        "label": "Cleaned Attendance",
+        "data": [
+          2000,
+          2100,
+          2050
+        ],
+        "borderColor": "#82ca9d"
+      },
+      {
+        "label": "Rolling Avg (3mo)",
+        "data": [
+          2000,
+          2050,
+          2050
+        ],
+        "borderColor": "#ffc658"
+      },
+      {
+        "label": "Lag 1 Month",
+        "data": [
+          0,
+          2000,
+          2100
+        ],
+        "borderColor": "#ff7300"
+      }
+    ]
+  },
+  "University Hospitals Birmingham": {
+    "labels": [
+      "Jan 2023",
+      "Feb 2023",
+      "Mar 2023"
+    ],
+    "datasets": [
+      {
+        "label": "Raw Attendance",
+        "data": [
+          1800,
+          1900,
+          1850
+        ],
+        "borderColor": "#8884d8"
+      },
+      {
+        "label": "Cleaned Attendance",
+        "data": [
+          1800,
+          1900,
+          1850
+        ],
+        "borderColor": "#82ca9d"
+      },
+      {
+        "label": "Rolling Avg (3mo)",
+        "data": [
+          1800,
+          1850,
+          1850
+        ],
+        "borderColor": "#ffc658"
+      },
+      {
+        "label": "Lag 1 Month",
+        "data": [
+          0,
+          1800,
+          1900
+        ],
+        "borderColor": "#ff7300"
+      }
+    ]
+  }
+}
