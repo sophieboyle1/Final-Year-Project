@@ -389,59 +389,61 @@ const Reports: React.FC = () => {
         </section>
 
         <section className="report-section">
-  <h2>Technical Methodology</h2>
+          <h2>Technical Methodology</h2>
 
-  <p>
-    To determine the most suitable algorithm for A&E forecasting, I experimented with multiple models and evaluated them using key performance metrics. Each model was trained on the same feature-engineered dataset to ensure a fair comparison.
-  </p>
+          <p>
+            To determine the most suitable algorithm for A&E forecasting, I experimented with multiple models and evaluated them using key performance metrics. Each model was trained on the same feature-engineered dataset to ensure a fair comparison.
+          </p>
 
-  <table className="model-comparison-table">
-    <thead>
-      <tr>
-        <th>Model</th>
-        <th>R² Score</th>
-        <th>MSE</th>
-        <th>Training Time</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Linear Regression</td>
-        <td>0.59</td>
-        <td>33,412,823</td>
-        <td>0.3s</td>
-        <td>Fast and interpretable; performed well but limited on non-linear patterns.</td>
-      </tr>
-      <tr>
-        <td>Random Forest</td>
-        <td>0.58</td>
-        <td>34,400,033</td>
-        <td>2.7s</td>
-        <td>Robust to overfitting; chosen for final deployment due to consistent results.</td>
-      </tr>
-      <tr>
-        <td>XGBoost</td>
-        <td>0.54</td>
-        <td>37,359,422</td>
-        <td>1.8s</td>
-        <td>Handled variance well but offered no significant gains over Random Forest.</td>
-      </tr>
-      <tr>
-        <td>LSTM Neural Network</td>
-        <td>-1.68</td>
-        <td>217,542,179</td>
-        <td>45.2s</td>
-        <td>Underperformed due to limited sequence depth and data sparsity.</td>
-      </tr>
-    </tbody>
-  </table>
+          <table className="model-comparison-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>R² Score</th>
+                <th>MSE</th>
+                <th>Training Time</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Linear Regression</td>
+                <td>0.59</td>
+                <td>33,412,823</td>
+                <td>0.3s</td>
+                <td>Fast and interpretable; performed well but limited on non-linear patterns.</td>
+              </tr>
+              <tr>
+                <td>Random Forest</td>
+                <td>0.58</td>
+                <td>34,400,033</td>
+                <td>2.7s</td>
+                <td>Robust to overfitting; chosen for final deployment due to consistent results.</td>
+              </tr>
+              <tr>
+                <td>XGBoost</td>
+                <td>0.54</td>
+                <td>37,359,422</td>
+                <td>1.8s</td>
+                <td>Handled variance well but offered no significant gains over Random Forest.</td>
+              </tr>
+              <tr>
+                <td>LSTM Neural Network</td>
+                <td>-1.68</td>
+                <td>217,542,179</td>
+                <td>45.2s</td>
+                <td>Underperformed due to limited sequence depth and data sparsity.</td>
+              </tr>
+            </tbody>
+          </table>
 
-  <p>
-    The Random Forest model was ultimately chosen for its strong balance between accuracy, resilience to noisy data, and interpretability. Hyperparameter tuning was performed via grid search using 5-fold cross-validation.
-  </p>
-</section>
-
+          <p>
+            The Random Forest model was ultimately chosen for its strong balance between accuracy, resilience to noisy data, and interpretability. Hyperparameter tuning was performed via grid search using 5-fold cross-validation.
+          </p>
+        </section>
+        <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
+          © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
+        </footer>
       </IonContent>
     </IonPage>
   );
