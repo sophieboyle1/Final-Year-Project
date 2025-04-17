@@ -76,7 +76,7 @@ const Reports: React.FC = () => {
   // Function to load transformation data
   const loadTransformationData = (hospitalName: string) => {
     console.log("Loading transformation data for hospital:", hospitalName);
-    
+
     fetch("/data/transformation_by_hospital.json")
       .then((res) => {
         if (!res.ok) {
@@ -100,35 +100,35 @@ const Reports: React.FC = () => {
       console.error("No transformation data available");
       return;
     }
-    
+
     // Use the selected hospital or fall back to ALL if not found
     const selectedData = transformationData[hospitalName] || transformationData["ALL"];
-    
+
     if (!selectedData) {
       console.error(`No data found for hospital: ${hospitalName}`);
       console.error("Available options:", Object.keys(transformationData));
       return;
     }
-    
+
     // Verify the data structure
     if (!selectedData.labels) {
       console.error("Missing 'labels' in data for hospital:", hospitalName);
       console.error("Data structure:", selectedData);
       return;
     }
-    
+
     const ctx = document.getElementById("transformationChart") as HTMLCanvasElement;
-    
+
     if (!ctx) {
       console.error("Canvas element for transformation chart not found");
       return;
     }
-    
+
     // Destroy existing chart to prevent memory leaks
     if (transformationChart) {
       transformationChart.destroy();
     }
-    
+
     // Accommodate both data structures (original format or datasets format)
     const datasets = selectedData.datasets || [
       {
@@ -150,7 +150,7 @@ const Reports: React.FC = () => {
         fill: false,
       },
     ];
-    
+
     const newChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -176,7 +176,7 @@ const Reports: React.FC = () => {
         },
       },
     });
-    
+
     setTransformationChart(newChart);
   };
 
@@ -328,65 +328,120 @@ const Reports: React.FC = () => {
         </section>
 
         <section className="report-section">
-  <h2>Data Transformation Explorer</h2>
+          <h2>Data Transformation Explorer</h2>
+          <p>
+            See how raw A&E data was transformed for model training. Select a hospital to view the data cleaning process.
+          </p>
+
+          <select
+            className="hospital-selector"
+            value={selectedHospital}
+            onChange={(e) => setSelectedHospital(e.target.value)}
+          >
+            <option value="ALL">All Hospitals</option>
+            <option value="Liverpool University Hospitals">Liverpool University Hospitals</option>
+            <option value="Manchester University NHS Trust">Manchester University NHS Trust</option>
+            <option value="University Hospitals Birmingham">University Hospitals Birmingham</option>
+          </select>
+
+          <div className="transformation-chart-container" style={{ height: "300px", maxWidth: "100%", marginTop: "20px" }}>
+            <canvas id="transformationChart"></canvas>
+          </div>
+        </section>
+
+        <section className="report-section">
+          <h2>COVID-19 Impact Analysis</h2>
+          <div className="covid-analysis">
+            <div className="covid-phase">
+              <h3>Initial Lockdown (Mar-Jun 2020)</h3>
+              <p>A&E attendances dropped by up to 57%, creating statistical outliers requiring special handling.</p>
+            </div>
+            <div className="covid-phase">
+              <h3>Recovery (Jul 2020-Feb 2021)</h3>
+              <p>Gradual return to ~85% of pre-pandemic levels with significant month-to-month volatility.</p>
+            </div>
+            <div className="covid-phase">
+              <h3>New Normal (Mar 2021+)</h3>
+              <p>Stabilized below pre-pandemic levels with altered seasonal patterns requiring model recalibration.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="report-section">
+          <h2>Future Improvements</h2>
+          <ul className="improvements-list">
+            <li>
+              <strong>External Data Integration</strong> - Weather patterns, public holidays, and local events
+            </li>
+            <li>
+              <strong>Admission Type Breakdown</strong> - Separate models for different A&E admission types
+            </li>
+            <li>
+              <strong>Regional Modeling</strong> - Region-specific models for local attendance variations
+            </li>
+            <li>
+              <strong>Extended Forecasting</strong> - Predictions beyond 2026 with increasing confidence intervals
+            </li>
+            <li>
+              <strong>Scenario Planning</strong> - "What-if" tools for resource allocation
+            </li>
+          </ul>
+        </section>
+
+        <section className="report-section">
+  <h2>Technical Methodology</h2>
+
   <p>
-    See how raw A&E data was transformed for model training. Select a hospital to view the data cleaning process.
+    To determine the most suitable algorithm for A&E forecasting, I experimented with multiple models and evaluated them using key performance metrics. Each model was trained on the same feature-engineered dataset to ensure a fair comparison.
   </p>
 
-  <select
-    className="hospital-selector"
-    value={selectedHospital}
-    onChange={(e) => setSelectedHospital(e.target.value)}
-  >
-    <option value="ALL">All Hospitals</option>
-    <option value="Liverpool University Hospitals">Liverpool University Hospitals</option>
-    <option value="Manchester University NHS Trust">Manchester University NHS Trust</option>
-    <option value="University Hospitals Birmingham">University Hospitals Birmingham</option>
-  </select>
+  <table className="model-comparison-table">
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>R² Score</th>
+        <th>MSE</th>
+        <th>Training Time</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Linear Regression</td>
+        <td>0.59</td>
+        <td>33,412,823</td>
+        <td>0.3s</td>
+        <td>Fast and interpretable; performed well but limited on non-linear patterns.</td>
+      </tr>
+      <tr>
+        <td>Random Forest</td>
+        <td>0.58</td>
+        <td>34,400,033</td>
+        <td>2.7s</td>
+        <td>Robust to overfitting; chosen for final deployment due to consistent results.</td>
+      </tr>
+      <tr>
+        <td>XGBoost</td>
+        <td>0.54</td>
+        <td>37,359,422</td>
+        <td>1.8s</td>
+        <td>Handled variance well but offered no significant gains over Random Forest.</td>
+      </tr>
+      <tr>
+        <td>LSTM Neural Network</td>
+        <td>-1.68</td>
+        <td>217,542,179</td>
+        <td>45.2s</td>
+        <td>Underperformed due to limited sequence depth and data sparsity.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div className="transformation-chart-container" style={{ height: "300px", maxWidth: "100%", marginTop: "20px" }}>
-    <canvas id="transformationChart"></canvas>
-  </div>
+  <p>
+    The Random Forest model was ultimately chosen for its strong balance between accuracy, resilience to noisy data, and interpretability. Hyperparameter tuning was performed via grid search using 5-fold cross-validation.
+  </p>
 </section>
 
-<section className="report-section">
-  <h2>COVID-19 Impact Analysis</h2>
-  <div className="covid-analysis">
-    <div className="covid-phase">
-      <h3>Initial Lockdown (Mar-Jun 2020)</h3>
-      <p>A&E attendances dropped by up to 57%, creating statistical outliers requiring special handling.</p>
-    </div>
-    <div className="covid-phase">
-      <h3>Recovery (Jul 2020-Feb 2021)</h3>
-      <p>Gradual return to ~85% of pre-pandemic levels with significant month-to-month volatility.</p>
-    </div>
-    <div className="covid-phase">
-      <h3>New Normal (Mar 2021+)</h3>
-      <p>Stabilized below pre-pandemic levels with altered seasonal patterns requiring model recalibration.</p>
-    </div>
-  </div>
-</section>
-
-<section className="report-section">
-  <h2>Future Improvements</h2>
-  <ul className="improvements-list">
-    <li>
-      <strong>External Data Integration</strong> - Weather patterns, public holidays, and local events
-    </li>
-    <li>
-      <strong>Admission Type Breakdown</strong> - Separate models for different A&E admission types
-    </li>
-    <li>
-      <strong>Regional Modeling</strong> - Region-specific models for local attendance variations
-    </li>
-    <li>
-      <strong>Extended Forecasting</strong> - Predictions beyond 2026 with increasing confidence intervals
-    </li>
-    <li>
-      <strong>Scenario Planning</strong> - "What-if" tools for resource allocation
-    </li>
-  </ul>
-</section>
       </IonContent>
     </IonPage>
   );
