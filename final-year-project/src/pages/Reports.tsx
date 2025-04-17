@@ -3,6 +3,12 @@ import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
 import Chart from "chart.js/auto";
 import "./Reports.css";
+import icon_calendar from "../assets/icon_calendar.jpg"
+import icon_trend from "../assets/icon_trend.jpg"
+import icon_lag from "../assets/icon_lag.jpg"
+import icon_hospital from "../assets/icon_hospital.jpg"
+
+
 
 const Reports: React.FC = () => {
   const anomalyChartRef = useRef<Chart | null>(null);
@@ -171,7 +177,7 @@ const Reports: React.FC = () => {
 
   <div className="feature-list">
     <div className="feature-item">
-      <img src="/images/icon_calendar.png" alt="Time Features" />
+      <img src={icon_calendar} alt="Time Features" className="feature-icon"/>
       <h3>Time-Based Features</h3>
       <p>
         Extracted <strong>month</strong>, <strong>year</strong>, <strong>day of week</strong>, and <strong>season</strong> to reflect predictable seasonal trends in A&E activity.
@@ -179,7 +185,7 @@ const Reports: React.FC = () => {
     </div>
 
     <div className="feature-item">
-      <img src="/images/icon_trend.png" alt="Rolling Averages" />
+      <img src={icon_trend} alt="Rolling Averages" className="feature-icon"/>
       <h3>Rolling Averages</h3>
       <p>
         Calculated <strong>3-month moving averages</strong> to capture recent trends and smooth out short-term spikes or drops.
@@ -187,7 +193,7 @@ const Reports: React.FC = () => {
     </div>
 
     <div className="feature-item">
-      <img src="/images/icon_lag.png" alt="Lag Features" />
+      <img src={icon_lag} alt="Lag Features" className="feature-icon"/>
       <h3>Lag Features</h3>
       <p>
         Included attendances from previous months (<strong>1-month and 3-month lags</strong>) to help the model learn from historical patterns.
@@ -195,7 +201,7 @@ const Reports: React.FC = () => {
     </div>
 
     <div className="feature-item">
-      <img src="/images/icon_hospital.png" alt="Hospital Metadata" />
+      <img src={icon_hospital} alt="Hospital Metadata" className="feature-icon"/>
       <h3>Hospital Metadata</h3>
       <p>
         Incorporated <strong>organization size</strong>, <strong>type</strong>, and <strong>region</strong> to adjust for variation between facilities.
