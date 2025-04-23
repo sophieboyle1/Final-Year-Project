@@ -1,16 +1,44 @@
-.images-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 20px;
-    justify-items: center;
-  }
-  
-  .prediction-image {
-    width: 90%;
-    max-width: 500px;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-  }
-  
+.predictions-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.metrics-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.metrics-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.metric-card {
+  background: #f8f8f8;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.methodology-section {
+  margin-top: 2rem;
+}
+
+.chatbot-link {
+  color: #0077cc;
+  text-decoration: underline;
+}
+
+.chart-scroll-section {
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.chart-scroll-container {
+  width: 1600px;
+  min-width: 1400px;
+  height: 400px;
+}
+

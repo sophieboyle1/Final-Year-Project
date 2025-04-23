@@ -1,0 +1,2472 @@
+{
+    "predictions": [
+        {
+            "date": "2020-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 17173,
+            "Predicted": null
+        },
+        {
+            "date": "2020-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 16734,
+            "Predicted": null
+        },
+        {
+            "date": "2020-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 19697,
+            "Predicted": null
+        },
+        {
+            "date": "2020-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 10448,
+            "Predicted": null
+        },
+        {
+            "date": "2020-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 14088,
+            "Predicted": null
+        },
+        {
+            "date": "2020-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 16488,
+            "Predicted": null
+        },
+        {
+            "date": "2020-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 19219,
+            "Predicted": null
+        },
+        {
+            "date": "2020-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 20978,
+            "Predicted": null
+        },
+        {
+            "date": "2020-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 20615,
+            "Predicted": null
+        },
+        {
+            "date": "2020-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 20135,
+            "Predicted": null
+        },
+        {
+            "date": "2020-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 17890,
+            "Predicted": null
+        },
+        {
+            "date": "2020-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 17825,
+            "Predicted": null
+        },
+        {
+            "date": "2021-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 17170,
+            "Predicted": null
+        },
+        {
+            "date": "2021-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 16439,
+            "Predicted": null
+        },
+        {
+            "date": "2021-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 21177,
+            "Predicted": null
+        },
+        {
+            "date": "2021-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 24776,
+            "Predicted": null
+        },
+        {
+            "date": "2021-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 27312,
+            "Predicted": null
+        },
+        {
+            "date": "2021-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28938,
+            "Predicted": null
+        },
+        {
+            "date": "2021-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 27758,
+            "Predicted": null
+        },
+        {
+            "date": "2021-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28552,
+            "Predicted": null
+        },
+        {
+            "date": "2021-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29531,
+            "Predicted": null
+        },
+        {
+            "date": "2021-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28257,
+            "Predicted": null
+        },
+        {
+            "date": "2021-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 25125,
+            "Predicted": null
+        },
+        {
+            "date": "2022-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 24183,
+            "Predicted": null
+        },
+        {
+            "date": "2022-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 23909,
+            "Predicted": null
+        },
+        {
+            "date": "2022-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29453,
+            "Predicted": null
+        },
+        {
+            "date": "2022-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26934,
+            "Predicted": null
+        },
+        {
+            "date": "2022-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29745,
+            "Predicted": null
+        },
+        {
+            "date": "2022-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28722,
+            "Predicted": null
+        },
+        {
+            "date": "2022-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28668,
+            "Predicted": null
+        },
+        {
+            "date": "2022-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26731,
+            "Predicted": null
+        },
+        {
+            "date": "2022-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26678,
+            "Predicted": null
+        },
+        {
+            "date": "2022-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28976,
+            "Predicted": null
+        },
+        {
+            "date": "2022-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29887,
+            "Predicted": null
+        },
+        {
+            "date": "2022-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 30102,
+            "Predicted": null
+        },
+        {
+            "date": "2023-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26325,
+            "Predicted": null
+        },
+        {
+            "date": "2023-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 25830,
+            "Predicted": null
+        },
+        {
+            "date": "2023-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28788,
+            "Predicted": null
+        },
+        {
+            "date": "2023-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26255,
+            "Predicted": null
+        },
+        {
+            "date": "2023-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29285,
+            "Predicted": null
+        },
+        {
+            "date": "2023-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28059,
+            "Predicted": null
+        },
+        {
+            "date": "2023-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 27759,
+            "Predicted": null
+        },
+        {
+            "date": "2023-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26328,
+            "Predicted": null
+        },
+        {
+            "date": "2023-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28045,
+            "Predicted": null
+        },
+        {
+            "date": "2023-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 30340,
+            "Predicted": null
+        },
+        {
+            "date": "2023-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28490,
+            "Predicted": null
+        },
+        {
+            "date": "2023-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28614,
+            "Predicted": null
+        },
+        {
+            "date": "2024-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29531,
+            "Predicted": null
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28696,
+            "Predicted": null
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 31771,
+            "Predicted": null
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29474,
+            "Predicted": null
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 32003,
+            "Predicted": null
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29699,
+            "Predicted": null
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 29740,
+            "Predicted": null
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 26940,
+            "Predicted": null
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 28690,
+            "Predicted": null
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 31189,
+            "Predicted": null
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 30854,
+            "Predicted": null
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": 30763,
+            "Predicted": null
+        },
+        {
+            "date": "2020-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 17173,
+            "Predicted": null
+        },
+        {
+            "date": "2020-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 16734,
+            "Predicted": null
+        },
+        {
+            "date": "2020-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 19697,
+            "Predicted": null
+        },
+        {
+            "date": "2020-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 14176,
+            "Predicted": null
+        },
+        {
+            "date": "2020-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 18764,
+            "Predicted": null
+        },
+        {
+            "date": "2020-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 21666,
+            "Predicted": null
+        },
+        {
+            "date": "2020-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 24215,
+            "Predicted": null
+        },
+        {
+            "date": "2020-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 25969,
+            "Predicted": null
+        },
+        {
+            "date": "2020-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 26327,
+            "Predicted": null
+        },
+        {
+            "date": "2020-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 24810,
+            "Predicted": null
+        },
+        {
+            "date": "2020-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 22624,
+            "Predicted": null
+        },
+        {
+            "date": "2020-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 21918,
+            "Predicted": null
+        },
+        {
+            "date": "2021-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 19966,
+            "Predicted": null
+        },
+        {
+            "date": "2021-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 19533,
+            "Predicted": null
+        },
+        {
+            "date": "2021-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 25319,
+            "Predicted": null
+        },
+        {
+            "date": "2021-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 35489,
+            "Predicted": null
+        },
+        {
+            "date": "2021-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40582,
+            "Predicted": null
+        },
+        {
+            "date": "2021-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 41229,
+            "Predicted": null
+        },
+        {
+            "date": "2021-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 37669,
+            "Predicted": null
+        },
+        {
+            "date": "2021-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40809,
+            "Predicted": null
+        },
+        {
+            "date": "2021-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 42464,
+            "Predicted": null
+        },
+        {
+            "date": "2021-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39982,
+            "Predicted": null
+        },
+        {
+            "date": "2021-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 34452,
+            "Predicted": null
+        },
+        {
+            "date": "2022-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 33991,
+            "Predicted": null
+        },
+        {
+            "date": "2022-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 33187,
+            "Predicted": null
+        },
+        {
+            "date": "2022-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40468,
+            "Predicted": null
+        },
+        {
+            "date": "2022-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 36420,
+            "Predicted": null
+        },
+        {
+            "date": "2022-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40461,
+            "Predicted": null
+        },
+        {
+            "date": "2022-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38844,
+            "Predicted": null
+        },
+        {
+            "date": "2022-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39016,
+            "Predicted": null
+        },
+        {
+            "date": "2022-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 35032,
+            "Predicted": null
+        },
+        {
+            "date": "2022-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 37921,
+            "Predicted": null
+        },
+        {
+            "date": "2022-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40977,
+            "Predicted": null
+        },
+        {
+            "date": "2022-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40140,
+            "Predicted": null
+        },
+        {
+            "date": "2022-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39478,
+            "Predicted": null
+        },
+        {
+            "date": "2023-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 33124,
+            "Predicted": null
+        },
+        {
+            "date": "2023-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 32584,
+            "Predicted": null
+        },
+        {
+            "date": "2023-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 37586,
+            "Predicted": null
+        },
+        {
+            "date": "2023-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 35269,
+            "Predicted": null
+        },
+        {
+            "date": "2023-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40004,
+            "Predicted": null
+        },
+        {
+            "date": "2023-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39595,
+            "Predicted": null
+        },
+        {
+            "date": "2023-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39248,
+            "Predicted": null
+        },
+        {
+            "date": "2023-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 36272,
+            "Predicted": null
+        },
+        {
+            "date": "2023-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39334,
+            "Predicted": null
+        },
+        {
+            "date": "2023-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 41766,
+            "Predicted": null
+        },
+        {
+            "date": "2023-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40143,
+            "Predicted": null
+        },
+        {
+            "date": "2023-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38943,
+            "Predicted": null
+        },
+        {
+            "date": "2024-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39570,
+            "Predicted": null
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38193,
+            "Predicted": null
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 41285,
+            "Predicted": null
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38288,
+            "Predicted": null
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 41952,
+            "Predicted": null
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38751,
+            "Predicted": null
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 39426,
+            "Predicted": null
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 35270,
+            "Predicted": null
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 37841,
+            "Predicted": null
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40781,
+            "Predicted": null
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 40514,
+            "Predicted": null
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": 38923,
+            "Predicted": null
+        },
+        {
+            "date": "2020-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 17173,
+            "Predicted": null
+        },
+        {
+            "date": "2020-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 16734,
+            "Predicted": null
+        },
+        {
+            "date": "2020-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 19697,
+            "Predicted": null
+        },
+        {
+            "date": "2020-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 12063,
+            "Predicted": null
+        },
+        {
+            "date": "2020-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 16408,
+            "Predicted": null
+        },
+        {
+            "date": "2020-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 19525,
+            "Predicted": null
+        },
+        {
+            "date": "2020-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 21743,
+            "Predicted": null
+        },
+        {
+            "date": "2020-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23927,
+            "Predicted": null
+        },
+        {
+            "date": "2020-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22533,
+            "Predicted": null
+        },
+        {
+            "date": "2020-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22490,
+            "Predicted": null
+        },
+        {
+            "date": "2020-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 19330,
+            "Predicted": null
+        },
+        {
+            "date": "2020-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22035,
+            "Predicted": null
+        },
+        {
+            "date": "2021-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 19162,
+            "Predicted": null
+        },
+        {
+            "date": "2021-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 16564,
+            "Predicted": null
+        },
+        {
+            "date": "2021-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 16962,
+            "Predicted": null
+        },
+        {
+            "date": "2021-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22999,
+            "Predicted": null
+        },
+        {
+            "date": "2021-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25202,
+            "Predicted": null
+        },
+        {
+            "date": "2021-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24295,
+            "Predicted": null
+        },
+        {
+            "date": "2021-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23914,
+            "Predicted": null
+        },
+        {
+            "date": "2021-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23977,
+            "Predicted": null
+        },
+        {
+            "date": "2021-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24656,
+            "Predicted": null
+        },
+        {
+            "date": "2021-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22544,
+            "Predicted": null
+        },
+        {
+            "date": "2021-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 22397,
+            "Predicted": null
+        },
+        {
+            "date": "2022-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23369,
+            "Predicted": null
+        },
+        {
+            "date": "2022-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23146,
+            "Predicted": null
+        },
+        {
+            "date": "2022-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26312,
+            "Predicted": null
+        },
+        {
+            "date": "2022-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24377,
+            "Predicted": null
+        },
+        {
+            "date": "2022-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26140,
+            "Predicted": null
+        },
+        {
+            "date": "2022-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25551,
+            "Predicted": null
+        },
+        {
+            "date": "2022-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25695,
+            "Predicted": null
+        },
+        {
+            "date": "2022-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25398,
+            "Predicted": null
+        },
+        {
+            "date": "2022-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25443,
+            "Predicted": null
+        },
+        {
+            "date": "2022-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 27435,
+            "Predicted": null
+        },
+        {
+            "date": "2022-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26427,
+            "Predicted": null
+        },
+        {
+            "date": "2022-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25994,
+            "Predicted": null
+        },
+        {
+            "date": "2023-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24276,
+            "Predicted": null
+        },
+        {
+            "date": "2023-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23462,
+            "Predicted": null
+        },
+        {
+            "date": "2023-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25700,
+            "Predicted": null
+        },
+        {
+            "date": "2023-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24205,
+            "Predicted": null
+        },
+        {
+            "date": "2023-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24659,
+            "Predicted": null
+        },
+        {
+            "date": "2023-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25996,
+            "Predicted": null
+        },
+        {
+            "date": "2023-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25459,
+            "Predicted": null
+        },
+        {
+            "date": "2023-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25172,
+            "Predicted": null
+        },
+        {
+            "date": "2023-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26041,
+            "Predicted": null
+        },
+        {
+            "date": "2023-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26909,
+            "Predicted": null
+        },
+        {
+            "date": "2023-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24728,
+            "Predicted": null
+        },
+        {
+            "date": "2023-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24614,
+            "Predicted": null
+        },
+        {
+            "date": "2024-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25826,
+            "Predicted": null
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25157,
+            "Predicted": null
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26693,
+            "Predicted": null
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 23988,
+            "Predicted": null
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26425,
+            "Predicted": null
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24560,
+            "Predicted": null
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25257,
+            "Predicted": null
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24049,
+            "Predicted": null
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24729,
+            "Predicted": null
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 26608,
+            "Predicted": null
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 25333,
+            "Predicted": null
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": 24872,
+            "Predicted": null
+        },
+        {
+            "date": "2020-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 17173,
+            "Predicted": null
+        },
+        {
+            "date": "2020-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 16734,
+            "Predicted": null
+        },
+        {
+            "date": "2020-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 19697,
+            "Predicted": null
+        },
+        {
+            "date": "2020-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 18564,
+            "Predicted": null
+        },
+        {
+            "date": "2020-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 22940,
+            "Predicted": null
+        },
+        {
+            "date": "2020-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 25607,
+            "Predicted": null
+        },
+        {
+            "date": "2020-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 28730,
+            "Predicted": null
+        },
+        {
+            "date": "2020-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 31235,
+            "Predicted": null
+        },
+        {
+            "date": "2020-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 30193,
+            "Predicted": null
+        },
+        {
+            "date": "2020-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 28100,
+            "Predicted": null
+        },
+        {
+            "date": "2020-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 25665,
+            "Predicted": null
+        },
+        {
+            "date": "2020-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 25551,
+            "Predicted": null
+        },
+        {
+            "date": "2021-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 23586,
+            "Predicted": null
+        },
+        {
+            "date": "2021-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 22448,
+            "Predicted": null
+        },
+        {
+            "date": "2021-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29176,
+            "Predicted": null
+        },
+        {
+            "date": "2021-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32186,
+            "Predicted": null
+        },
+        {
+            "date": "2021-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34075,
+            "Predicted": null
+        },
+        {
+            "date": "2021-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 35392,
+            "Predicted": null
+        },
+        {
+            "date": "2021-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32701,
+            "Predicted": null
+        },
+        {
+            "date": "2021-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34283,
+            "Predicted": null
+        },
+        {
+            "date": "2021-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34321,
+            "Predicted": null
+        },
+        {
+            "date": "2021-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 31660,
+            "Predicted": null
+        },
+        {
+            "date": "2021-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29867,
+            "Predicted": null
+        },
+        {
+            "date": "2022-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29446,
+            "Predicted": null
+        },
+        {
+            "date": "2022-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29316,
+            "Predicted": null
+        },
+        {
+            "date": "2022-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34966,
+            "Predicted": null
+        },
+        {
+            "date": "2022-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 31543,
+            "Predicted": null
+        },
+        {
+            "date": "2022-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34083,
+            "Predicted": null
+        },
+        {
+            "date": "2022-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33108,
+            "Predicted": null
+        },
+        {
+            "date": "2022-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32317,
+            "Predicted": null
+        },
+        {
+            "date": "2022-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 30401,
+            "Predicted": null
+        },
+        {
+            "date": "2022-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 30313,
+            "Predicted": null
+        },
+        {
+            "date": "2022-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32819,
+            "Predicted": null
+        },
+        {
+            "date": "2022-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32705,
+            "Predicted": null
+        },
+        {
+            "date": "2022-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32718,
+            "Predicted": null
+        },
+        {
+            "date": "2023-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29031,
+            "Predicted": null
+        },
+        {
+            "date": "2023-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 24868,
+            "Predicted": null
+        },
+        {
+            "date": "2023-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 31657,
+            "Predicted": null
+        },
+        {
+            "date": "2023-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 29850,
+            "Predicted": null
+        },
+        {
+            "date": "2023-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33759,
+            "Predicted": null
+        },
+        {
+            "date": "2023-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33852,
+            "Predicted": null
+        },
+        {
+            "date": "2023-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34509,
+            "Predicted": null
+        },
+        {
+            "date": "2023-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 32851,
+            "Predicted": null
+        },
+        {
+            "date": "2023-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33513,
+            "Predicted": null
+        },
+        {
+            "date": "2023-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34985,
+            "Predicted": null
+        },
+        {
+            "date": "2023-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33781,
+            "Predicted": null
+        },
+        {
+            "date": "2023-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34191,
+            "Predicted": null
+        },
+        {
+            "date": "2024-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34610,
+            "Predicted": null
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33537,
+            "Predicted": null
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 35395,
+            "Predicted": null
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34521,
+            "Predicted": null
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 37409,
+            "Predicted": null
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 35642,
+            "Predicted": null
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 36340,
+            "Predicted": null
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 33364,
+            "Predicted": null
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 34418,
+            "Predicted": null
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 37172,
+            "Predicted": null
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 36955,
+            "Predicted": null
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": 37216,
+            "Predicted": null
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16074
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16720
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 15715
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16987
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 15977
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17178
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17559
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16899
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17228
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16340
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17136
+        },
+        {
+            "date": "2025-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17754
+        },
+        {
+            "date": "2025-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16914
+        },
+        {
+            "date": "2025-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17901
+        },
+        {
+            "date": "2025-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16007
+        },
+        {
+            "date": "2025-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17550
+        },
+        {
+            "date": "2025-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17016
+        },
+        {
+            "date": "2025-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17167
+        },
+        {
+            "date": "2025-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16701
+        },
+        {
+            "date": "2025-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17203
+        },
+        {
+            "date": "2025-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17684
+        },
+        {
+            "date": "2025-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16977
+        },
+        {
+            "date": "2025-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17147
+        },
+        {
+            "date": "2026-01-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17388
+        },
+        {
+            "date": "2026-02-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17451
+        },
+        {
+            "date": "2026-03-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 15985
+        },
+        {
+            "date": "2026-04-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16855
+        },
+        {
+            "date": "2026-05-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17394
+        },
+        {
+            "date": "2026-06-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16309
+        },
+        {
+            "date": "2026-07-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17122
+        },
+        {
+            "date": "2026-08-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16782
+        },
+        {
+            "date": "2026-09-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16480
+        },
+        {
+            "date": "2026-10-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 17695
+        },
+        {
+            "date": "2026-11-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 16259
+        },
+        {
+            "date": "2026-12-01",
+            "org_name": "LEEDS TEACHING HOSPITALS NHS TRUST",
+            "Actual": null,
+            "Predicted": 18157
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15307
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15238
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15771
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16870
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15316
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16515
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15760
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16897
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15640
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15959
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16860
+        },
+        {
+            "date": "2025-01-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16528
+        },
+        {
+            "date": "2025-02-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16441
+        },
+        {
+            "date": "2025-03-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17207
+        },
+        {
+            "date": "2025-04-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17489
+        },
+        {
+            "date": "2025-05-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17012
+        },
+        {
+            "date": "2025-06-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17393
+        },
+        {
+            "date": "2025-07-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16311
+        },
+        {
+            "date": "2025-08-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18264
+        },
+        {
+            "date": "2025-09-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15726
+        },
+        {
+            "date": "2025-10-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16858
+        },
+        {
+            "date": "2025-11-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16883
+        },
+        {
+            "date": "2025-12-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15923
+        },
+        {
+            "date": "2026-01-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17492
+        },
+        {
+            "date": "2026-02-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17354
+        },
+        {
+            "date": "2026-03-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16162
+        },
+        {
+            "date": "2026-04-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18435
+        },
+        {
+            "date": "2026-05-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16459
+        },
+        {
+            "date": "2026-06-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18137
+        },
+        {
+            "date": "2026-07-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15733
+        },
+        {
+            "date": "2026-08-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18099
+        },
+        {
+            "date": "2026-09-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15990
+        },
+        {
+            "date": "2026-10-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17360
+        },
+        {
+            "date": "2026-11-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17334
+        },
+        {
+            "date": "2026-12-01",
+            "org_name": "NEWCASTLE UPON TYNE HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16889
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16069
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16359
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15191
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16597
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15231
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16960
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16029
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16270
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17131
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16790
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16981
+        },
+        {
+            "date": "2025-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17330
+        },
+        {
+            "date": "2025-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17667
+        },
+        {
+            "date": "2025-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16601
+        },
+        {
+            "date": "2025-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17951
+        },
+        {
+            "date": "2025-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16850
+        },
+        {
+            "date": "2025-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17590
+        },
+        {
+            "date": "2025-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15720
+        },
+        {
+            "date": "2025-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16761
+        },
+        {
+            "date": "2025-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17151
+        },
+        {
+            "date": "2025-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16729
+        },
+        {
+            "date": "2025-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16510
+        },
+        {
+            "date": "2025-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18319
+        },
+        {
+            "date": "2026-01-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15542
+        },
+        {
+            "date": "2026-02-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18168
+        },
+        {
+            "date": "2026-03-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15177
+        },
+        {
+            "date": "2026-04-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16173
+        },
+        {
+            "date": "2026-05-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16841
+        },
+        {
+            "date": "2026-06-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16141
+        },
+        {
+            "date": "2026-07-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16327
+        },
+        {
+            "date": "2026-08-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16581
+        },
+        {
+            "date": "2026-09-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17042
+        },
+        {
+            "date": "2026-10-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17474
+        },
+        {
+            "date": "2026-11-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16670
+        },
+        {
+            "date": "2026-12-01",
+            "org_name": "MANCHESTER UNIVERSITY NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17236
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15152
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16519
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15425
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15478
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16903
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16050
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15726
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16058
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16515
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15259
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16648
+        },
+        {
+            "date": "2025-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15426
+        },
+        {
+            "date": "2025-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16235
+        },
+        {
+            "date": "2025-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15321
+        },
+        {
+            "date": "2025-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16118
+        },
+        {
+            "date": "2025-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15771
+        },
+        {
+            "date": "2025-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16021
+        },
+        {
+            "date": "2025-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15664
+        },
+        {
+            "date": "2025-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15560
+        },
+        {
+            "date": "2025-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16151
+        },
+        {
+            "date": "2025-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16136
+        },
+        {
+            "date": "2025-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16059
+        },
+        {
+            "date": "2025-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16657
+        },
+        {
+            "date": "2026-01-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16727
+        },
+        {
+            "date": "2026-02-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17006
+        },
+        {
+            "date": "2026-03-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17587
+        },
+        {
+            "date": "2026-04-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16617
+        },
+        {
+            "date": "2026-05-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17801
+        },
+        {
+            "date": "2026-06-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15815
+        },
+        {
+            "date": "2026-07-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17566
+        },
+        {
+            "date": "2026-08-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15755
+        },
+        {
+            "date": "2026-09-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16677
+        },
+        {
+            "date": "2026-10-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16986
+        },
+        {
+            "date": "2026-11-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16782
+        },
+        {
+            "date": "2026-12-01",
+            "org_name": "LIVERPOOL UNIVERSITY HOSPITALS NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17406
+        },
+        {
+            "date": "2024-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16159
+        },
+        {
+            "date": "2024-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16199
+        },
+        {
+            "date": "2024-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16575
+        },
+        {
+            "date": "2024-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16242
+        },
+        {
+            "date": "2024-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 15903
+        },
+        {
+            "date": "2024-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16926
+        },
+        {
+            "date": "2024-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16179
+        },
+        {
+            "date": "2024-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17033
+        },
+        {
+            "date": "2024-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16298
+        },
+        {
+            "date": "2024-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17174
+        },
+        {
+            "date": "2024-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17916
+        },
+        {
+            "date": "2025-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16223
+        },
+        {
+            "date": "2025-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17204
+        },
+        {
+            "date": "2025-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17307
+        },
+        {
+            "date": "2025-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17158
+        },
+        {
+            "date": "2025-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17401
+        },
+        {
+            "date": "2025-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17021
+        },
+        {
+            "date": "2025-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17842
+        },
+        {
+            "date": "2025-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16139
+        },
+        {
+            "date": "2025-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 18493
+        },
+        {
+            "date": "2025-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16195
+        },
+        {
+            "date": "2025-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17836
+        },
+        {
+            "date": "2025-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17102
+        },
+        {
+            "date": "2026-01-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17556
+        },
+        {
+            "date": "2026-02-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16880
+        },
+        {
+            "date": "2026-03-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16723
+        },
+        {
+            "date": "2026-04-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16610
+        },
+        {
+            "date": "2026-05-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17223
+        },
+        {
+            "date": "2026-06-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16744
+        },
+        {
+            "date": "2026-07-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17159
+        },
+        {
+            "date": "2026-08-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17767
+        },
+        {
+            "date": "2026-09-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16168
+        },
+        {
+            "date": "2026-10-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 17956
+        },
+        {
+            "date": "2026-11-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16997
+        },
+        {
+            "date": "2026-12-01",
+            "org_name": "UNIVERSITY HOSPITALS BIRMINGHAM NHS FOUNDATION TRUST",
+            "Actual": null,
+            "Predicted": 16391
+        }
+    ],
+    "mse": 34400033.75,
+    "r2": 0.58
+}
