@@ -10,7 +10,9 @@
     "test.e2e": "cypress run",
     "test.unit": "vitest",
     "lint": "eslint",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "npm run build"
+
   },
   "dependencies": {
     "@capacitor/app": "6.0.1",
