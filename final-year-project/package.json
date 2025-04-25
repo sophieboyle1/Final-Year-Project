@@ -10,7 +10,7 @@
     "test.e2e": "cypress run",
     "test.unit": "vitest",
     "lint": "eslint",
-    "start": "node server.js",
+    "start": "node server.cjs",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
