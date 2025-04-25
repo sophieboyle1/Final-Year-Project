@@ -1,4 +1,13 @@
 {
+  "name": "ae-forecasting-root",
+  "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "cd final-year-project && npm start",
+    "heroku-postbuild": "cd final-year-project && npm install && npm run build"
+  },
   "dependencies": {
     "chart.js": "^4.4.8",
     "react-chartjs-2": "^5.2.0"

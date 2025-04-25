@@ -1,1 +1,1 @@
-web: cd final-year-project && npm install && npm run build && npm start
+web: cd final-year-project && node server.cjs
