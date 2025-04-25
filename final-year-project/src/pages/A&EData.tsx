@@ -176,7 +176,7 @@ const AandEData: React.FC = () => {
               scales: {
                 x: {
                   ticks: {
-                    callback: function (tickValue) {
+                    callback: function (tickValue: number | string) {
                       const num = typeof tickValue === "number" ? tickValue : parseFloat(tickValue);
                       return num.toLocaleString();
                     }
