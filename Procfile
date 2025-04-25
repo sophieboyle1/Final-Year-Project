@@ -1,1 +1,1 @@
-web: cd final-year-project && node server.cjs
+web: node server.js
