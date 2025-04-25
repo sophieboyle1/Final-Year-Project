@@ -52,5 +52,20 @@
     outline: none; 
   }
 
+  .primary-button {
+    --background: #00BEBB;
+    --color: white;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  
+  .secondary-button {
+    --background: #00BEBB;
+    --color: white;
+    font-weight: 600;
+    margin-top: 10px;
+    opacity: 0.9;
+  }  
+
   
   

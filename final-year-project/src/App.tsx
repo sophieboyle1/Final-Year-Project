@@ -60,7 +60,7 @@ const App: React.FC = () => {
           <Tab1 />
         </Route>
         <Route path="/reports">
-          <Reports reportData={reportData} />
+          <Reports/>
         </Route>
         <Route path="/predictions">
           <Predictions />

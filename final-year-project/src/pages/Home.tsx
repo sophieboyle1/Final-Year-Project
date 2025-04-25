@@ -21,17 +21,18 @@ const HomePage: React.FC = () => {
           </div>
           <div className="text-container">
             <h1 className="main-title">A&E Data Analysis</h1>
-            <h2 className="subheading">Understanding Emergency Department Trends</h2>
+            <h2 className="subheading">Forecasting A&E Attendance with Machine Learning</h2>
             <p className="project-description">
-              This project applies advanced data analytics to examine emergency department attendance using real & synthetic data.
-              Through machine learning models, statistical analysis, and cloud computing, key trends in hospital visits are uncovered.
-              The goal is to enhance decision-making in emergency care by predicting demand, identifying seasonal variations, and analyzing external influences.
+              This project builds a machine learning forecasting system for predicting monthly A&E attendance across NHS trusts.
+              Using cleaned and feature-engineered NHS data, the system compares multiple models and deploys an interactive chatbot and dashboard
+              to explore real-time predictions, trends, and model insights.
             </p>
 
             <div className="button-container">
-              <IonButton expand="full" className="primary-button" routerLink="/aedata">
-                Explore Data
+              <IonButton expand="full" className="primary-button" routerLink="/predictions">
+                View Predictions
               </IonButton>
+
               <IonButton expand="full" className="secondary-button" routerLink="/reports">
                 View Reports
               </IonButton>
@@ -58,11 +59,11 @@ const HomePage: React.FC = () => {
             </div>
             <div className="feature-box">
               <h3>🤖 Machine Learning</h3>
-              <p>Predicting A&E demand using **Random Forest models** and statistical forecasting.</p>
+              <p>Predicting A&E demand using Random Forest models and statistical forecasting.</p>
             </div>
             <div className="feature-box">
               <h3>☁️ Cloud Storage</h3>
-              <p>Using cloud computing for efficient data storage, retrieval, and processing.</p>
+              <p>Used to temporarily store raw NHS datasets during early data exploration and cleaning stages.</p>
             </div>
           </div>
         </div>
@@ -79,7 +80,7 @@ const HomePage: React.FC = () => {
             {/* Data Ingestion */}
             <div className="pipeline-box">
               <div className="pipeline-icon">
-              <img src={dataIngestionImage} alt="Data Ingestion" />
+                <img src={dataIngestionImage} alt="Data Ingestion" />
               </div>
               <h3>Data Ingestion</h3>
               <p>Loading raw hospital data, handling missing values, and normalizing formats.</p>
@@ -88,23 +89,22 @@ const HomePage: React.FC = () => {
             {/* Feature Engineering */}
             <div className="pipeline-box">
               <div className="pipeline-icon">
-              <img src={FeatureEngineeringImage} alt="Feature Engineering" />
+                <img src={FeatureEngineeringImage} alt="Feature Engineering" />
               </div>
               <h3>Feature Engineering</h3>
-              <p>Extracting variables like seasonality, holidays, weather impacts, and peak hours.</p>
+              <p>Engineering features like lag values, rolling averages, and calendar-based indicators to capture temporal trends.</p>
             </div>
 
             {/* Predictive Modeling */}
             <div className="pipeline-box">
               <div className="pipeline-icon">
-              <img src={predictivemodelingImage} alt="Predictive Modeling" />
+                <img src={predictivemodelingImage} alt="Predictive Modeling" />
               </div>
               <h3>Predictive Modeling</h3>
               <p>Applying <strong>Random Forest</strong> and statistical models to forecast A&E demand.</p>
             </div>
           </div>
         </div>
-
 
         {/* Fourth Section - Key Findings */}
         <div className="findings-section">
@@ -115,22 +115,24 @@ const HomePage: React.FC = () => {
 
           <div className="findings-grid">
             <div className="finding-box">
-              <h3>📆 Seasonal Trends</h3>
-              <p>Winter months show a 15% increase in A&E visits due to flu outbreaks.</p>
+              <h3>📆 Seasonal Patterns</h3>
+              <p>Attendance consistently peaks during winter, with clear month-to-month variability.</p>
+            </div>
+
+            <div className="finding-box">
+              <h3>📅 Monthly Patterns</h3>
+              <p>Some months show repeat spikes year-to-year, highlighting predictable attendance trends.</p>
             </div>
             <div className="finding-box">
-              <h3>📅 Holiday Impact</h3>
-              <p>Public holidays see a spike in attendances, especially due to alcohol-related incidents.</p>
+              <h3>🔁 Handling Missing Data</h3>
+              <p>Synthetic values were generated using seasonal pattern replication to fill gaps in monthly data.</p>
             </div>
-            <div className="finding-box">
-              <h3>🔀 Real vs. Synthetic Data</h3>
-              <p>AI-generated synthetic data aligns 85% with real data, proving its validity.</p>
-            </div>
+
           </div>
 
           <div className="button-container">
-            <IonButton expand="full" className="primary-button" routerLink="/findings">
-              View Full Findings
+            <IonButton expand="full" className="primary-button" routerLink="/data">
+              View A&E Data
             </IonButton>
           </div>
         </div>
