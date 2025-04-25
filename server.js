@@ -1,13 +1,16 @@
-// redirects to the actual server in the subdirectory
+const express = require('express');
 const path = require('path');
-const childProcess = require('child_process');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Change directory to final-year-project and run server.cjs
-const serverProcess = childProcess.spawn('node', 
-  [path.join(__dirname, 'final-year-project', 'server.cjs')], 
-  { stdio: 'inherit' }
-);
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, 'final-year-project/dist')));
 
-serverProcess.on('error', (error) => {
-  console.error('Failed to start server:', error);
+// The "catchall" handler for any request
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'final-year-project/dist/index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
