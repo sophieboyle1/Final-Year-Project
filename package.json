@@ -5,7 +5,7 @@
     "node": "18.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node final-year-project/server.cjs",
     "heroku-postbuild": "cd final-year-project && npm install && npm run build"
   },
   "dependencies": {
