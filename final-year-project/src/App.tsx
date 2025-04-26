@@ -2,7 +2,6 @@ import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
   IonRouterOutlet,
-  IonTabs,
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -11,7 +10,6 @@ import Reports from './pages/Reports';
 import Predictions from './pages/Predictions';
 import AandEData from './pages/A&EData';
 import Chatbot from './pages/Chatbot';
-import { useEffect, useState } from 'react';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,48 +31,29 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => {
-  const [reportData, setReportData] = useState<any[]>([]);
-
-  const fetchReports = async () => {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/api/reports');
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      setReportData(data);
-    } catch (error) {
-      console.error('Error fetching reports:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchReports();
-  }, []);
-
   return (
     <IonApp>
       <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/tab1">
-          <Tab1 />
-        </Route>
-        <Route path="/reports">
-          <Reports/>
-        </Route>
-        <Route path="/predictions">
-          <Predictions />
-        </Route>
-        <Route path="/data">
-          <AandEData />
-        </Route>
-        <Route path="/chatbot">
-          <Chatbot />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/tab1" />
-        </Route>
-      </IonRouterOutlet>
+        <IonRouterOutlet>
+          <Route exact path="/tab1">
+            <Tab1 />
+          </Route>
+          <Route path="/reports">
+            <Reports />
+          </Route>
+          <Route path="/predictions">
+            <Predictions />
+          </Route>
+          <Route path="/data">
+            <AandEData />
+          </Route>
+          <Route path="/chatbot">
+            <Chatbot />
+          </Route>
+          <Route exact path="/">
+            <Redirect to="/tab1" />
+          </Route>
+        </IonRouterOutlet>
       </IonReactRouter>
     </IonApp>
   );
