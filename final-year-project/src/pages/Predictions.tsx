@@ -4,7 +4,7 @@ import Header from "./Header";
 import Chart from "chart.js/auto";
 import "./Predictions.css";
 
-// Define type for prediction entries
+// Type definition for individual prediction entries
 type PredictionEntry = {
   org_name: string;
   date: string;
@@ -13,12 +13,22 @@ type PredictionEntry = {
 };
 
 const Predictions: React.FC = () => {
+  // Chart instance reference
   const chartRef = useRef<Chart | null>(null);
+
+  // Model evaluation metrics (R² and MSE)
   const [metrics, setMetrics] = useState<{ r2: number; mse: number } | null>(null);
+
+  // Full prediction dataset
   const [data, setData] = useState<PredictionEntry[]>([]);
+
+  // Hospital trust options for dropdown
   const [orgOptions, setOrgOptions] = useState<string[]>([]);
+
+  // Currently selected hospital trust
   const [selectedOrg, setSelectedOrg] = useState<string>("");
 
+  // Fetch prediction data and populate hospital trust options
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,6 +51,7 @@ const Predictions: React.FC = () => {
     fetchData();
   }, []);
 
+  // Update the chart when selected hospital or prediction data changes
   useEffect(() => {
     if (!selectedOrg || data.length === 0) return;
 
@@ -101,10 +112,13 @@ const Predictions: React.FC = () => {
     }
   }, [selectedOrg, data]);
 
+  // Render the page content
   return (
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
+        
+        {/* Header Section */}
         <section className="predictions-header">
           <h1>A&E Attendance Predictions</h1>
           <p>
@@ -112,6 +126,7 @@ const Predictions: React.FC = () => {
           </p>
         </section>
 
+        {/* Hospital Trust Selection */}
         <section>
           <label htmlFor="org-select">Select Hospital Trust:</label>
           <select
@@ -127,12 +142,14 @@ const Predictions: React.FC = () => {
           </select>
         </section>
 
+        {/* Forecast Chart */}
         <section className="chart-scroll-section">
           <div className="chart-scroll-container">
             <canvas id="predictionChart"></canvas>
           </div>
         </section>
 
+        {/* Model Performance Metrics */}
         <section className="metrics-section">
           <h2>Model Performance</h2>
           {metrics && (
@@ -149,6 +166,7 @@ const Predictions: React.FC = () => {
           )}
         </section>
 
+        {/* Methodology Section */}
         <section className="methodology-section">
           <h2>Methodology</h2>
           <p>
@@ -156,13 +174,13 @@ const Predictions: React.FC = () => {
             rolling averages, month, and past attendances. The model was evaluated using R² and MSE metrics and validated on a 20% test set.
           </p>
           <p>
-            Predictions extend from <strong>Feb 2024</strong> to <strong>Dec 2026</strong>, based on synthetic future inputs generated using lag and trend-based features.
+            Predictions extend from <strong>Jan 2025</strong> to <strong>Dec 2026</strong>, based on synthetic future inputs generated using lag and trend-based features.
           </p>
           <p>
-            To explore individual hospital forecasts interactively, check out the{" "}
-            <a href="/chatbot" className="chatbot-link">Chatbot Page</a>.
+            To explore individual hospital forecasts interactively, check out the Chatbot Page
           </p>
         </section>
+
       </IonContent>
     </IonPage>
   );
