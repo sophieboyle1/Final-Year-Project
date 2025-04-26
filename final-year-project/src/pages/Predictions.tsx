@@ -117,7 +117,7 @@ const Predictions: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-        
+
         {/* Header Section */}
         <section className="predictions-header">
           <h1>A&E Attendance Predictions</h1>
@@ -180,6 +180,9 @@ const Predictions: React.FC = () => {
             To explore individual hospital forecasts interactively, check out the Chatbot Page
           </p>
         </section>
+        <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
+          © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
+        </footer>
 
       </IonContent>
     </IonPage>
