@@ -15,10 +15,10 @@ const Header: React.FC = () => {
         </IonTitle>
 
         <IonButtons slot="end" className="nav-container">
-          <IonButton className="nav-button" href="/data">A&E Data</IonButton>
-          <IonButton className="nav-button" href="/reports">Reports</IonButton>
-          <IonButton className="nav-button" href="/predictions">Predictions</IonButton>
-          <IonButton className="nav-button" href="/chatbot">Chatbot</IonButton>
+          <IonButton className="nav-button" routerLink="/data" routerDirection="forward">A&E Data</IonButton>
+          <IonButton className="nav-button" routerLink="/reports" routerDirection="forward">Reports</IonButton>
+          <IonButton className="nav-button" routerLink="/predictions" routerDirection="forward">Predictions</IonButton>
+          <IonButton className="nav-button" routerLink="/chatbot" routerDirection="forward">Chatbot</IonButton>
         </IonButtons>
       </IonToolbar>
     </IonHeader>
