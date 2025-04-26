@@ -3,6 +3,7 @@ import { IonContent, IonPage } from "@ionic/react";
 import Header from "./Header";
 import Chart from "chart.js/auto";
 import "./Predictions.css";
+import { Link } from "react-router-dom"; 
 
 // Define type for prediction entries
 type PredictionEntry = {
@@ -201,6 +202,10 @@ const Predictions: React.FC = () => {
         <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
           © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
         </footer>
+        {/* Floating Chatbot Button */}
+<Link to="/chatbot" className="floating-chatbot-button">
+  🤖 Chatbot
+</Link>
       </IonContent>
     </IonPage>
   );
