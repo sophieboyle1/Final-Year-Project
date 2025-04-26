@@ -4,6 +4,7 @@ import Header from "./Header";
 import "./AandEData.css";
 import Chart from "chart.js/auto";
 import './global.css';
+import { Link } from "react-router-dom"; 
 
 const AandEData: React.FC = () => {
   const [summaryData, setSummaryData] = useState<{
@@ -414,6 +415,10 @@ const AandEData: React.FC = () => {
         <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
           © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
         </footer>
+        {/* Floating Chatbot Button */}
+        <Link to="/chatbot" className="floating-chatbot-button">
+          🤖 Chatbot
+        </Link>
       </IonContent>
     </IonPage>
   );

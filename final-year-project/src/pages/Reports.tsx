@@ -7,6 +7,7 @@ import icon_calendar from "../assets/icon_calendar.jpg"
 import icon_trend from "../assets/icon_trend.jpg"
 import icon_lag from "../assets/icon_lag.jpg"
 import icon_hospital from "../assets/icon_hospital.jpg"
+import { Link } from "react-router-dom"; 
 
 const Reports: React.FC = () => {
   const anomalyChartRef = useRef<Chart | null>(null);
@@ -439,6 +440,10 @@ const Reports: React.FC = () => {
         <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
           © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
         </footer>
+        {/* Floating Chatbot Button */}
+        <Link to="/chatbot" className="floating-chatbot-button">
+          🤖 Chatbot
+        </Link>
       </IonContent>
     </IonPage>
   );

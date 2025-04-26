@@ -6,7 +6,7 @@ import image from '../assets/hospital.jpg';
 import dataIngestionImage from '../assets/data_ingestion.jpg';
 import FeatureEngineeringImage from '../assets/feature_engineering.jpg';
 import predictivemodelingImage from '../assets/predictive_modeling.png';
-
+import { Link } from "react-router-dom"; 
 
 
 const HomePage: React.FC = () => {
@@ -136,6 +136,14 @@ const HomePage: React.FC = () => {
             </IonButton>
           </div>
         </div>
+        {/* Footer */}
+        <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
+          © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
+        </footer>
+        {/* Floating Chatbot Button */}
+        <Link to="/chatbot" className="floating-chatbot-button">
+          🤖 Chatbot
+        </Link>
       </IonContent>
     </IonPage>
   );
