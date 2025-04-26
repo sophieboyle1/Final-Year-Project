@@ -4,7 +4,7 @@ import Header from "./Header";
 import Chart from "chart.js/auto";
 import "./Predictions.css";
 
-// Type definition for individual prediction entries
+// Define type for prediction entries
 type PredictionEntry = {
   org_name: string;
   date: string;
@@ -13,22 +13,13 @@ type PredictionEntry = {
 };
 
 const Predictions: React.FC = () => {
-  // Chart instance reference
   const chartRef = useRef<Chart | null>(null);
-
-  // Model evaluation metrics (R² and MSE)
   const [metrics, setMetrics] = useState<{ r2: number; mse: number } | null>(null);
-
-  // Full prediction dataset
   const [data, setData] = useState<PredictionEntry[]>([]);
-
-  // Hospital trust options for dropdown
   const [orgOptions, setOrgOptions] = useState<string[]>([]);
-
-  // Currently selected hospital trust
   const [selectedOrg, setSelectedOrg] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("");
 
-  // Fetch prediction data and populate hospital trust options
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,7 +42,6 @@ const Predictions: React.FC = () => {
     fetchData();
   }, []);
 
-  // Update the chart when selected hospital or prediction data changes
   useEffect(() => {
     if (!selectedOrg || data.length === 0) return;
 
@@ -112,13 +102,15 @@ const Predictions: React.FC = () => {
     }
   }, [selectedOrg, data]);
 
-  // Render the page content
+  // Filter options based on search text
+  const filteredOptions = orgOptions.filter((org) =>
+    org.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   return (
     <IonPage>
       <Header />
       <IonContent className="ion-padding">
-
-        {/* Header Section */}
         <section className="predictions-header">
           <h1>A&E Attendance Predictions</h1>
           <p>
@@ -126,15 +118,39 @@ const Predictions: React.FC = () => {
           </p>
         </section>
 
-        {/* Hospital Trust Selection */}
         <section>
-          <label htmlFor="org-select">Select Hospital Trust:</label>
+          {/* Search Input */}
+          <input
+            type="text"
+            placeholder="Search Hospital Trust..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            style={{
+              marginBottom: "12px",
+              padding: "10px",
+              width: "100%",
+              maxWidth: "400px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              fontSize: "1rem",
+            }}
+          />
+
+          {/* Hospital Dropdown */}
           <select
             id="org-select"
             value={selectedOrg}
             onChange={(e) => setSelectedOrg(e.target.value)}
+            style={{
+              padding: "10px",
+              width: "100%",
+              maxWidth: "400px",
+              borderRadius: "8px",
+              border: "1px solid #ccc",
+              fontSize: "1rem",
+            }}
           >
-            {orgOptions.map((org) => (
+            {filteredOptions.map((org) => (
               <option key={org} value={org}>
                 {org}
               </option>
@@ -142,14 +158,14 @@ const Predictions: React.FC = () => {
           </select>
         </section>
 
-        {/* Forecast Chart */}
+        {/* Chart */}
         <section className="chart-scroll-section">
           <div className="chart-scroll-container">
             <canvas id="predictionChart"></canvas>
           </div>
         </section>
 
-        {/* Model Performance Metrics */}
+        {/* Metrics */}
         <section className="metrics-section">
           <h2>Model Performance</h2>
           {metrics && (
@@ -166,24 +182,25 @@ const Predictions: React.FC = () => {
           )}
         </section>
 
-        {/* Methodology Section */}
+        {/* Methodology */}
         <section className="methodology-section">
           <h2>Methodology</h2>
           <p>
-            Predictions were generated using a Random Forest Regressor trained on five years of A&E attendance data. I included features like
-            rolling averages, month, and past attendances. The model was evaluated using R² and MSE metrics and validated on a 20% test set.
+            Predictions were generated using a Random Forest Regressor trained on five years of A&E attendance data. Features like rolling averages, month, and past attendances were used. The model was evaluated using R² and MSE metrics.
           </p>
           <p>
-            Predictions extend from <strong>Jan 2025</strong> to <strong>Dec 2026</strong>, based on synthetic future inputs generated using lag and trend-based features.
+            Predictions extend from <strong>Feb 2024</strong> to <strong>Dec 2026</strong> using synthetic future inputs generated from lagged trends.
           </p>
           <p>
-            To explore individual hospital forecasts interactively, check out the Chatbot Page
+            Explore individual forecasts interactively via the{" "}
+            <a href="/chatbot" className="chatbot-link">Chatbot Page</a>.
           </p>
         </section>
+
+        {/* Footer */}
         <footer style={{ marginTop: "2rem", padding: "1rem", textAlign: "center", color: "#888" }}>
           © 2025 NHS A&E Data Insights – Final Year Project by Sophie Boyle
         </footer>
-
       </IonContent>
     </IonPage>
   );
