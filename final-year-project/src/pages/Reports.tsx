@@ -206,31 +206,26 @@ const Reports: React.FC = () => {
 
           <div className="cleaning-cards">
             <div className="card">
-              <img src="/images/icon_date.png" alt="Date Parsing" />
               <h3>Date Parsing</h3>
               <p>Merged <code>year</code> and <code>month</code> into a single <code>date</code> field for consistent time-series analysis.</p>
             </div>
 
             <div className="card">
-              <img src="/images/icon_missing.png" alt="Missing Data" />
               <h3>Missing Data</h3>
               <p>Detected and flagged gaps in the monthly timeline using row counts and timestamp tracking.</p>
             </div>
 
             <div className="card">
-              <img src="/images/icon_synthetic.png" alt="Synthetic Filling" />
               <h3>Synthetic Filling</h3>
               <p>Used linear interpolation and domain knowledge to fill missing or corrupt data while preserving trends.</p>
             </div>
 
             <div className="card">
-              <img src="/images/icon_zscore.png" alt="Z-score Detection" />
               <h3>Z-Score Detection</h3>
               <p>Flagged unusually high or low values (like April 2020 or July 2021) based on statistical deviation.</p>
             </div>
 
             <div className="card">
-              <img src="/images/icon_flags.png" alt="Outlier Flags" />
               <h3>Outlier Flags</h3>
               <p>Tagged rows with <code>is_outlier</code> or <code>is_anomaly</code> for downstream filtering and model training.</p>
             </div>
