@@ -22,9 +22,51 @@
     <meta name="mobile-web-app-capable" content="yes" />  <!-- Updated meta tag -->
     <meta name="apple-mobile-web-app-title" content="Ionic App" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <script>
+      // This will help us capture any errors that happen during page load
+      window.addEventListener('error', function(event) {
+        var errorDiv = document.getElementById('debug-error');
+        if (errorDiv) {
+          errorDiv.innerHTML += '<p><strong>Error:</strong> ' + event.message + 
+                              '<br><strong>File:</strong> ' + event.filename + 
+                              '<br><strong>Line:</strong> ' + event.lineno + '</p>';
+        }
+      });
+    </script>
   </head>
   <body>
+    <div id="debug" style="position: fixed; top: 0; left: 0; background: white; color: black; padding: 10px; z-index: 9999; max-width: 80%; overflow: auto; max-height: 80%; font-family: monospace; border: 2px solid red;">
+      <h3>Debug Info:</h3>
+      <p>App loading... If you see this message, React failed to initialize properly.</p>
+      <div id="debug-error"></div>
+    </div>
+
     <div id="root"></div>
+    
+    <script>
+      // Remove debug panel if React successfully renders
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          // Check if the root element has any children
+          var rootElement = document.getElementById('root');
+          if (rootElement && rootElement.children.length > 0) {
+            // React has rendered something, remove debug panel
+            var debugPanel = document.getElementById('debug');
+            if (debugPanel) {
+              debugPanel.style.display = 'none';
+            }
+          } else {
+            // React didn't render anything within 5 seconds
+            var debugPanel = document.getElementById('debug');
+            if (debugPanel) {
+              debugPanel.innerHTML += '<p><strong>Status:</strong> No React content rendered after 5 seconds</p>';
+            }
+          }
+        }, 5000);
+      });
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
