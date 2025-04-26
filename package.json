@@ -6,6 +6,7 @@
   },
   "scripts": {
     "start": "node final-year-project/server.cjs",
+    "build": "cd final-year-project && npm install && npm run build",
     "heroku-postbuild": "cd final-year-project && npm install && npm run build"
   },
   "dependencies": {
