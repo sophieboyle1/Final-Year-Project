@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  base: '/', 
   plugins: [
     react(),
     legacy()
@@ -13,8 +14,8 @@ export default defineConfig({
     open: true,
     strictPort: true,
     fs: {
-      strict: false // Allow serving files from outside the root
+      strict: false 
     }
   },
-  publicDir: "public" // ✅ Explicitly define the public directory
+  publicDir: "public" 
 })
