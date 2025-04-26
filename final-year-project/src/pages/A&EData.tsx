@@ -129,8 +129,8 @@ const AandEData: React.FC = () => {
               },
               scales: {
                 y: {
-                  min: 60,
-                  max: 90,
+                  min: 85,
+                  max: 100,
                   ticks: {
                     callback: (value: any) => `${value}%`,
                   },
@@ -319,10 +319,7 @@ const AandEData: React.FC = () => {
               <h3>A&E Performance Trends</h3>
               <canvas id="performanceChart" style={{ height: "400px" }}></canvas>
               <p>
-                After a dip in 2021, the percentage of patients seen within the 4-hour target has
-                steadily improved year-on-year, rising from 77% to over 83% by 2024. This upward
-                trend reflects ongoing efforts to improve emergency care efficiency across NHS
-                hospitals despite growing patient demand.
+                After consistently strong performance since 2020, the percentage of patients seen within the 4-hour target has remained above 90%, with a slight upward trend from 91.8% in 2020 to 94.0% by 2024. This stable and high performance reflects ongoing efforts to maintain emergency care efficiency across NHS hospitals despite increasing patient demand.
               </p>
             </div>
 

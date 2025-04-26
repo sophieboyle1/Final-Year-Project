@@ -27,14 +27,34 @@ const Chatbot: React.FC = () => {
     const [hospitalTrusts, setHospitalTrusts] = useState<string[]>([]);
 
     useEffect(() => {
-        fetch('/data/predictions.json')
-            .then((res) => res.json())
-            .then((data) => {
-                setPredictionsData(data);
-                const trusts = Array.from(new Set(data.predictions.map((r: Prediction) => r.org_name.toLowerCase()))) as string[];
-                setHospitalTrusts(trusts);
-            })
-            .catch((err) => console.error('Failed to load predictions:', err));
+        // Try multiple paths to handle both development and production environments
+        const fetchData = async () => {
+            try {
+                const paths = ['./data/predictions.json', '/data/predictions.json', '../data/predictions.json'];
+                
+                for (const path of paths) {
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            const data = await response.json();
+                            setPredictionsData(data);
+                            const trusts = Array.from(new Set(data.predictions.map((r: Prediction) => r.org_name.toLowerCase()))) as string[];
+                            setHospitalTrusts(trusts);
+                            console.log(`Successfully loaded data from ${path}`);
+                            return;
+                        }
+                    } catch (e) {
+                        console.log(`Failed to load from ${path}:`, e);
+                    }
+                }
+                
+                throw new Error('Could not load predictions from any path');
+            } catch (err) {
+                console.error('Failed to load predictions:', err);
+            }
+        };
+
+        fetchData();
     }, []);
 
     const sendMessage = () => {
