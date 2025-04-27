@@ -15,6 +15,7 @@ const Header: React.FC = () => {
         </IonTitle>
 
         <IonButtons slot="end" className="nav-container">
+        <IonButton className="nav-button" routerLink="/tab1" routerDirection="forward">Home</IonButton>
           <IonButton className="nav-button" routerLink="/data" routerDirection="forward">A&E Data</IonButton>
           <IonButton className="nav-button" routerLink="/reports" routerDirection="forward">Reports</IonButton>
           <IonButton className="nav-button" routerLink="/predictions" routerDirection="forward">Predictions</IonButton>
